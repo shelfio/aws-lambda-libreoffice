@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const {execSync} = require('child_process');
+const tar = require('tar-fs');
 const defaultArgs = require('./args');
 
 module.exports.defaultArgs = defaultArgs;
@@ -26,7 +26,7 @@ module.exports.executablePath = function() {
     }
 
     const source = fs.createReadStream(input);
-    const target = fs.createWriteStream('/tmp/lo.tar');
+    const target = tar.extract('/tmp');
 
     source.on('error', error => {
       return reject(error);
@@ -37,8 +37,6 @@ module.exports.executablePath = function() {
     });
 
     target.on('close', () => {
-      execSync(`cd /tmp && tar xf /tmp/lo.tar && rm -f /tmp/lo.tar`);
-
       fs.chmod(output, '0755', error => {
         if (error) {
           return reject(error);
