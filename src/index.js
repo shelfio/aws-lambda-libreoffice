@@ -38,7 +38,7 @@ module.exports.getExecutablePath = function() {
       return reject(error);
     });
 
-    target.on('close', () => {
+    target.on('finish', () => {
       fs.chmod(output, '0755', error => {
         if (error) {
           return reject(error);
