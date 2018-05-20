@@ -37,7 +37,7 @@ module.exports.executablePath = function() {
     });
 
     target.on('close', () => {
-      execSync(`cd /tmp && tar -f /tmp/lo.tar && rm -f /tmp/lo.tar`);
+      execSync(`cd /tmp && tar xf /tmp/lo.tar && rm -f /tmp/lo.tar`);
 
       fs.chmod(output, '0755', error => {
         if (error) {
