@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const tar = require('tar-fs');
+const del = require('del');
 const defaultArgs = require('./args');
 
 module.exports.defaultArgs = defaultArgs;
@@ -14,7 +15,9 @@ module.exports.getExecutablePath = function() {
     if (fs.existsSync(output) === true) {
       for (let file of fs.readdirSync(`/tmp`)) {
         if (file.endsWith('.tmp') === true || file.startsWith('OSL_PIPE')) {
-          fs.unlinkSync(`/tmp/${file}`);
+          try {
+            del.sync([`/tmp/${file}`, `/tmp/${file}/*`], {force: true});
+          } catch (error) {}
         }
       }
 

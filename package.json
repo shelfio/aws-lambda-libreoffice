@@ -1,6 +1,6 @@
 {
   "name": "aws-lambda-libreoffice",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "85 MB LibreOffice to fit inside AWS Lambda compressed with Brotli",
   "license": "MIT",
   "repository": "vladgolubev/aws-lambda-libreoffice",
@@ -22,6 +22,7 @@
   "main": "src/index.js",
   "keywords": [],
   "dependencies": {
+    "del": "^3.0.0",
     "tar-fs": "^1.16.2"
   },
   "devDependencies": {
