@@ -13,9 +13,7 @@
     "node": ">=8.10"
   },
   "scripts": {
-    "coverage": "jest --coverage",
-    "lint": "eslint . --fix",
-    "test": "jest"
+    "lint": "eslint . --fix"
   },
   "files": ["src", "bin"],
   "main": "src/index.js",
