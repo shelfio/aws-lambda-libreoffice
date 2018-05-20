@@ -1,6 +1,6 @@
 {
   "name": "aws-lambda-libreoffice",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "85 MB LibreOffice to fit inside AWS Lambda compressed with Brotli",
   "license": "MIT",
   "repository": "vladgolubev/aws-lambda-libreoffice",
@@ -15,7 +15,10 @@
   "scripts": {
     "lint": "eslint . --fix"
   },
-  "files": ["src", "bin"],
+  "files": [
+    "src",
+    "bin"
+  ],
   "main": "src/index.js",
   "keywords": [],
   "devDependencies": {
@@ -35,6 +38,9 @@
     }
   },
   "lint-staged": {
-    "*.{js,json,css,md}": ["prettier --write", "git add"]
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
