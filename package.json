@@ -1,6 +1,6 @@
 {
   "name": "aws-lambda-libreoffice",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "85 MB LibreOffice to fit inside AWS Lambda compressed with Brotli",
   "license": "MIT",
   "repository": "vladgolubev/aws-lambda-libreoffice",
