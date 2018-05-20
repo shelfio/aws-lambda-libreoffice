@@ -2,6 +2,8 @@
 
 > 85 MB LibreOffice to fit inside AWS Lambda compressed with Brotli
 
+Inspired by [chrome-aws-lambda](https://github.com/alixaxel/chrome-aws-lambda)
+
 ## Install
 
 ```
