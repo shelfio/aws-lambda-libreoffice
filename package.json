@@ -1,0 +1,42 @@
+{
+  "name": "aws-lambda-libreoffice",
+  "version": "0.0.0",
+  "description": "Compressed LibreOffice for AWS Lambda",
+  "license": "MIT",
+  "repository": "vladgolubev/aws-lambda-libreoffice",
+  "author": {
+    "name": "Vlad Holubiev",
+    "email": "golubev.vld@gmail.com",
+    "url": "vladholubiev.com"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "coverage": "jest --coverage",
+    "lint": "eslint . --fix",
+    "test": "jest"
+  },
+  "files": ["index.js"],
+  "keywords": [],
+  "devDependencies": {
+    "eslint": "^4.15.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.5.0",
+    "jest": "^22.1.2",
+    "husky": "^0.15.0-beta.16",
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.9.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": ["prettier --write", "git add"]
+  }
+}
