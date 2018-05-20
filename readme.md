@@ -11,10 +11,9 @@ $ yarn add aws-lambda-libreoffice
 ## Usage
 
 ```js
-const awsLambdaLibreoffice = require('aws-lambda-libreoffice');
+const {executablePath} = require('aws-lambda-libreoffice');
 
-awsLambdaLibreoffice('unicorns');
-//=> 'unicorns & rainbows'
+const loBinary = await executablePath(); // /tmp/instdir/program/soffice
 ```
 
 ## API
