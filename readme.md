@@ -17,7 +17,7 @@ const {getExecutablePath, defaultArgs} = require('aws-lambda-libreoffice');
 
 const loBinary = await getExecutablePath(); // /tmp/instdir/program/soffice
 
-execSync(`${loBinary} ${defaultArgs} --convert-to pdf file.docx --outdir /tmp`)
+execSync(`${loBinary} ${defaultArgs.join(' ')} --convert-to pdf file.docx --outdir /tmp`)
 ```
 
 ## License
