@@ -48,6 +48,6 @@ module.exports.getExecutablePath = function() {
       });
     });
 
-    source.pipe(require(`${__dirname}/../node_modules/iltorb`).decompressStream()).pipe(target);
+    source.pipe(require(`${__dirname}/iltorb`).decompressStream()).pipe(target);
   });
 };
