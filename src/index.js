@@ -6,7 +6,7 @@ const defaultArgs = require('./args');
 module.exports.defaultArgs = defaultArgs;
 
 // see https://github.com/alixaxel/chrome-aws-lambda
-module.exports.executablePath = function() {
+module.exports.getExecutablePath = function() {
   return new Promise((resolve, reject) => {
     let input = path.join(__dirname, '..', 'bin');
     let output = '/tmp/instdir/program/soffice';
@@ -17,6 +17,8 @@ module.exports.executablePath = function() {
           fs.unlinkSync(`/tmp/${file}`);
         }
       }
+
+      return resolve(output);
     }
 
     for (let file of fs.readdirSync(input)) {
@@ -46,6 +48,6 @@ module.exports.executablePath = function() {
       });
     });
 
-    source.pipe(require(`${__dirname}/iltorb`).decompressStream()).pipe(target);
+    source.pipe(require(`${__dirname}/../node_modules/iltorb`).decompressStream()).pipe(target);
   });
 };
