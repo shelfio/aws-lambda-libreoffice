@@ -1,4 +1,4 @@
-# aws-lambda-libreoffice [![CircleCI](https://img.shields.io/circleci/project/github/vladgolubev/aws-lambda-libreoffice.svg)](https://circleci.com/gh/vladgolubev/aws-lambda-libreoffice) ![](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
+# aws-lambda-libreoffice ![](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
 
 > 85 MB LibreOffice to fit inside AWS Lambda compressed with Brotli
 
@@ -13,11 +13,11 @@ $ yarn add aws-lambda-libreoffice
 ## Usage
 
 ```js
-const {executablePath} = require('aws-lambda-libreoffice');
+const {getExecutablePath, defaultArgs} = require('aws-lambda-libreoffice');
 
-const loBinary = await executablePath(); // /tmp/instdir/program/soffice
+const loBinary = await getExecutablePath(); // /tmp/instdir/program/soffice
 
-execSync(`${loBinary} --headless --convert-to pdf file.docx`)
+execSync(`${loBinary} ${defaultArgs} --convert-to pdf file.docx`)
 ```
 
 ## License
