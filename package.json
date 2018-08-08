@@ -30,7 +30,7 @@
     "eslint-plugin-prettier": "2.6.2",
     "husky": "0.15.0-rc.13",
     "lint-staged": "7.2.0",
-    "prettier": "1.14.0"
+    "prettier": "1.14.1"
   },
   "optionalDependencies": {
     "iltorb": "^2.2.0"
