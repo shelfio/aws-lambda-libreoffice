@@ -15,6 +15,19 @@ $ yarn add aws-lambda-libreoffice
 ## Usage
 
 ```js
+const {convertFileToPDF} = require('aws-lambda-libreoffice');
+
+module.exports.handler = async () => {
+  // assuming there is a document.docx file inside /tmp dir
+  // original file will be deleted afterwards
+
+  return convertFileToPDF('/tmp/document.docx'); // will create /tmp/document.pdf
+};
+```
+
+Or if you want more control:
+
+```js
 const {getExecutablePath, defaultArgs} = require('aws-lambda-libreoffice');
 
 const loBinary = await getExecutablePath(); // /tmp/instdir/program/soffice
