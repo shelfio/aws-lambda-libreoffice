@@ -1,13 +1,13 @@
 {
-  "name": "aws-lambda-libreoffice",
+  "name": "@shelf/aws-lambda-libreoffice",
   "version": "0.1.4",
   "description": "85 MB LibreOffice to fit inside AWS Lambda compressed with Brotli",
   "license": "MIT",
-  "repository": "vladgolubev/aws-lambda-libreoffice",
+  "repository": "shelfio/aws-lambda-libreoffice",
   "author": {
     "name": "Vlad Holubiev",
-    "email": "golubev.vld@gmail.com",
-    "url": "vladholubiev.com"
+    "email": "vlad@shelf.io",
+    "url": "shelf.io"
   },
   "engines": {
     "node": ">=8.10"
@@ -46,5 +46,8 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
