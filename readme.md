@@ -19,8 +19,15 @@ const {getExecutablePath, defaultArgs} = require('aws-lambda-libreoffice');
 
 const loBinary = await getExecutablePath(); // /tmp/instdir/program/soffice
 
-execSync(`${loBinary} ${defaultArgs.join(' ')} --convert-to pdf file.docx --outdir /tmp`)
+execSync(`${loBinary} ${defaultArgs.join(' ')} --convert-to pdf file.docx --outdir /tmp`);
 ```
+
+## See Also
+
+- [serverless-libreoffice](https://github.com/vladgolubev/serverless-libreoffice)
+- [aws-lambda-tesseract](https://github.com/shelfio/aws-lambda-tesseract)
+- [aws-lambda-brotli-unpacker](https://github.com/shelfio/aws-lambda-brotli-unpacker)
+- [chrome-aws-lambda](https://github.com/alixaxel/chrome-aws-lambda)
 
 ## License
 
