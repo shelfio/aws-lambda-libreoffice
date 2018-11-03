@@ -1,5 +1,3 @@
 {
-  "extends": [
-    "config:base"
-  ]
+  "extends": ["github>shelfio/renovate-config"]
 }
