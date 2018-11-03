@@ -21,7 +21,7 @@ module.exports.getExecutablePath = async function() {
  * @return {Promise<String>} Logs from spawning LibreOffice process
  */
 module.exports.convertFileToPDF = async function(filePath) {
-  const binary = await getExecutablePath();
+  const binary = await module.exports.getExecutablePath();
 
   const logs = execSync(
     `cd /tmp && ${binary} ${defaultArgs.join(' ')} --convert-to pdf --outdir /tmp ${filePath}`
