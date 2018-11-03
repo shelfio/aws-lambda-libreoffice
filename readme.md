@@ -9,13 +9,13 @@ Inspired by [chrome-aws-lambda](https://github.com/alixaxel/chrome-aws-lambda)
 ## Install
 
 ```
-$ yarn add aws-lambda-libreoffice
+$ yarn add @shelf/aws-lambda-libreoffice
 ```
 
 ## Usage
 
 ```js
-const {convertFileToPDF} = require('aws-lambda-libreoffice');
+const {convertFileToPDF} = require('@shelf/aws-lambda-libreoffice');
 
 module.exports.handler = async () => {
   // assuming there is a document.docx file inside /tmp dir
@@ -28,7 +28,7 @@ module.exports.handler = async () => {
 Or if you want more control:
 
 ```js
-const {getExecutablePath, defaultArgs} = require('aws-lambda-libreoffice');
+const {getExecutablePath, defaultArgs} = require('@shelf/aws-lambda-libreoffice');
 
 const loBinary = await getExecutablePath(); // /tmp/instdir/program/soffice
 
@@ -44,4 +44,4 @@ execSync(`${loBinary} ${defaultArgs.join(' ')} --convert-to pdf file.docx --outd
 
 ## License
 
-MIT © [Vlad Holubiev](https://vladholubiev.com)
+MIT © [Shelf](https://shelf.io)
