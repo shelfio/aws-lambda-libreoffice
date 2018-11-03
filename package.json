@@ -22,8 +22,8 @@
   "main": "src/index.js",
   "keywords": [],
   "dependencies": {
-    "del": "^3.0.0",
-    "tar-fs": "^1.16.2"
+    "@shelf/aws-lambda-brotli-unpacker": "0.0.2",
+    "del": "^3.0.0"
   },
   "devDependencies": {
     "eslint": "5.8.0",
@@ -42,7 +42,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,json,css,md}": [
+    "*.{js,json,css,md,yml}": [
       "prettier --write",
       "git add"
     ]
