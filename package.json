@@ -34,9 +34,6 @@
     "lint-staged": "8.0.4",
     "prettier": "1.14.3"
   },
-  "optionalDependencies": {
-    "iltorb": "^2.2.0"
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
