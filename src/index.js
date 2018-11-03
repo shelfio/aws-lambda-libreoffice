@@ -27,7 +27,7 @@ module.exports.convertFileToPDF = async function(filePath) {
     `cd /tmp && ${binary} ${defaultArgs.join(' ')} --convert-to pdf --outdir /tmp ${filePath}`
   );
 
-  execSync(`rm ${filePath}`);
+  execSync(`rm /tmp/${filePath}`);
 
   return logs.toString('utf8');
 };
