@@ -28,10 +28,10 @@
   },
   "devDependencies": {
     "@shelf/eslint-config": "0.0.8",
-    "eslint": "5.8.0",
-    "husky": "1.1.3",
-    "lint-staged": "8.0.4",
-    "prettier": "1.14.3"
+    "eslint": "5.15.1",
+    "husky": "1.3.1",
+    "lint-staged": "8.1.5",
+    "prettier": "1.16.4"
   },
   "husky": {
     "hooks": {
