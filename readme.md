@@ -6,6 +6,8 @@ Inspired by [chrome-aws-lambda](https://github.com/alixaxel/chrome-aws-lambda)
 
 ✨ Also works in [Google Cloud Functions](https://cloud.google.com/functions/) as long as you select [Node.js 8 runtime](https://cloud.google.com/functions/docs/concepts/nodejs-8-runtime) <sub>(thanks to [ncruces](https://github.com/ncruces) [for the info](https://github.com/vladgolubev/aws-lambda-libreoffice/issues/28#issuecomment-427397121))</sub>
 
+:information_source: Compiled LibreOffice version: 6.1.0.0.alpha0
+
 ## Install
 
 ```
