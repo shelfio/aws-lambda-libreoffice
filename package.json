@@ -30,7 +30,7 @@
     "@shelf/eslint-config": "0.3.2",
     "eslint": "5.16.0",
     "husky": "2.2.0",
-    "lint-staged": "8.1.5",
+    "lint-staged": "8.1.6",
     "prettier": "1.17.0"
   },
   "husky": {
