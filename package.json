@@ -13,25 +13,38 @@
     "node": ">=8.10"
   },
   "scripts": {
+    "build": "rm -rf lib/ && yarn build:types && babel src --out-dir lib --ignore '**/*.test.ts' --extensions '.ts' --copy-files",
+    "build:types": "tsc --emitDeclarationOnly --declaration --isolatedModules false --declarationDir lib",
+    "coverage": "jest --coverage",
     "lint": "eslint . --fix",
-    "test": "echo ok"
+    "prepack": "yarn build",
+    "test": "echo ok",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch"
   },
   "files": [
-    "src",
+    "lib",
     "bin"
   ],
   "main": "src/index.js",
   "keywords": [],
   "dependencies": {
     "@shelf/aws-lambda-brotli-unpacker": "0.0.2",
-    "del": "^4.0.0"
+    "del": "4.1.1"
   },
   "devDependencies": {
+    "@babel/cli": "7.4.4",
+    "@babel/core": "7.4.5",
+    "@babel/preset-env": "7.4.5",
+    "@babel/preset-typescript": "7.3.3",
     "@shelf/eslint-config": "0.3.5",
+    "@types/jest": "24.0.13",
+    "@types/node": "8",
     "eslint": "5.16.0",
     "husky": "2.4.0",
     "lint-staged": "8.2.0",
-    "prettier": "1.18.2"
+    "prettier": "1.18.2",
+    "typescript": "3.5.1"
   },
   "husky": {
     "hooks": {

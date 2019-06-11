@@ -1,7 +1,7 @@
-const fs = require('fs');
-const del = require('del');
+import fs from 'fs';
+import del from 'del';
 
-module.exports.cleanupTempFiles = function() {
+export function cleanupTempFiles() {
   for (let file of fs.readdirSync(`/tmp`)) {
     if (file.endsWith('.tmp') === true || file.startsWith('OSL_PIPE')) {
       try {
@@ -10,4 +10,4 @@ module.exports.cleanupTempFiles = function() {
       } catch (error) {}
     }
   }
-};
+}
