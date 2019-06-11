@@ -46,7 +46,7 @@ execSync(`${loBinary} ${defaultArgs.join(' ')} --convert-to pdf file.docx --outd
 
 ### Test
 
-Smoke test that it works: `docker run --rm -v "$PWD":/var/task lambci/lambda:nodejs8.10 src/test.handler`
+Smoke test that it works: `yarn build && docker run --rm -v "$PWD":/var/task lambci/lambda:nodejs8.10 lambda.test.handler`
 
 ## License
 
