@@ -44,6 +44,10 @@ execSync(`${loBinary} ${defaultArgs.join(' ')} --convert-to pdf file.docx --outd
 - [aws-lambda-brotli-unpacker](https://github.com/shelfio/aws-lambda-brotli-unpacker)
 - [chrome-aws-lambda](https://github.com/alixaxel/chrome-aws-lambda)
 
+### Test
+
+Smoke test that it works: `docker run --rm -v "$PWD":/var/task lambci/lambda:nodejs8.10 src/test.handler`
+
 ## License
 
 MIT © [Shelf](https://shelf.io)
