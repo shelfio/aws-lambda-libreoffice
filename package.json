@@ -25,7 +25,7 @@
   "files": [
     "lib"
   ],
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "keywords": [],
   "dependencies": {
     "@shelf/aws-lambda-brotli-unpacker": "0.0.2",
