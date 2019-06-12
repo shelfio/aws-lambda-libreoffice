@@ -26,7 +26,8 @@
     "lib"
   ],
   "main": "lib/index.js",
-  "keywords": [],
+  "types": "lib/index.d.ts",
+  "keywords": ["aws lambda", "libreoffice", "serverless", "pdf"],
   "dependencies": {
     "@shelf/aws-lambda-brotli-unpacker": "0.0.2",
     "del": "4.1.1"
