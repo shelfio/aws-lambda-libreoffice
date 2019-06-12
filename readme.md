@@ -18,13 +18,13 @@ Follow the instructions on how to add a lambda layer in [that repo](https://gith
 ## Usage
 
 ```js
-const {convertFileToPDF} = require('@shelf/aws-lambda-libreoffice');
+const {convertTo} = require('@shelf/aws-lambda-libreoffice');
 
 module.exports.handler = async () => {
   // assuming there is a document.docx file inside /tmp dir
   // original file will be deleted afterwards
 
-  return convertFileToPDF('/tmp/document.docx'); // will create /tmp/document.pdf
+  return convertTo('document.docx', 'pdf'); // returns /tmp/document.pdf
 };
 ```
 
