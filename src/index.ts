@@ -1,9 +1,16 @@
 import {unpack} from '@shelf/aws-lambda-brotli-unpacker';
 import {execSync} from 'child_process';
 import {cleanupTempFiles} from './cleanup';
-import defaultArgsJSON from './args.json';
 
-export const defaultArgs = defaultArgsJSON;
+export const defaultArgs = [
+  '--headless',
+  '--invisible',
+  '--nodefault',
+  '--view',
+  '--nolockcheck',
+  '--nologo',
+  '--norestore'
+];
 
 const INPUT_PATH = '/opt/lo.tar.br';
 const OUTPUT_PATH = '/tmp/instdir/program/soffice';
