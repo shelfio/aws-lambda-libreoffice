@@ -18,7 +18,7 @@
     "coverage": "jest --coverage",
     "lint": "eslint . --fix",
     "prepack": "yarn build",
-    "test": "echo ok",
+    "test": "jest src",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch"
   },
@@ -39,11 +39,16 @@
     "@shelf/eslint-config": "0.3.5",
     "@types/jest": "24.0.13",
     "@types/node": "8",
+    "babel-jest": "24.8.0",
     "eslint": "5.16.0",
     "husky": "2.4.0",
+    "jest": "24.8.0",
     "lint-staged": "8.2.0",
     "prettier": "1.18.2",
     "typescript": "3.5.1"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "husky": {
     "hooks": {
