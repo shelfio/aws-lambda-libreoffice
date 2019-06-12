@@ -35,7 +35,10 @@
   ],
   "dependencies": {
     "@shelf/aws-lambda-brotli-unpacker": "0.0.2",
-    "del": "4.1.1"
+    "@shelf/is-audio-filepath": "0.0.3",
+    "del": "4.1.1",
+    "is-image": "3.0.0",
+    "is-video": "1.0.1"
   },
   "devDependencies": {
     "@babel/cli": "7.4.4",
