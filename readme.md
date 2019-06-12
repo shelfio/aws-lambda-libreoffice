@@ -4,8 +4,6 @@
 
 Inspired by [chrome-aws-lambda](https://github.com/alixaxel/chrome-aws-lambda)
 
-✨ Also works in [Google Cloud Functions](https://cloud.google.com/functions/) as long as you select [Node.js 8 runtime](https://cloud.google.com/functions/docs/concepts/nodejs-8-runtime) <sub>(thanks to [ncruces](https://github.com/ncruces) [for the info](https://github.com/vladgolubev/aws-lambda-libreoffice/issues/28#issuecomment-427397121))</sub>
-
 :information_source: Compiled LibreOffice version: 6.1.0.0.alpha0
 
 ## Install
@@ -13,6 +11,9 @@ Inspired by [chrome-aws-lambda](https://github.com/alixaxel/chrome-aws-lambda)
 ```
 $ yarn add @shelf/aws-lambda-libreoffice
 ```
+
+**NOTE:** Since version 2.0.0 npm package no longer ships the 85 MB LibreOffice but relies upon [libreoffice-lambda-layer](https://github.com/shelfio/libreoffice-lambda-layer) instead.
+Follow the instructions on how to add a lambda layer in [that repo](https://github.com/shelfio/libreoffice-lambda-layer).
 
 ## Usage
 
@@ -39,6 +40,7 @@ execSync(`${loBinary} ${defaultArgs.join(' ')} --convert-to pdf file.docx --outd
 
 ## See Also
 
+- [libreoffice-lambda-layer](https://github.com/shelfio/libreoffice-lambda-layer)
 - [serverless-libreoffice](https://github.com/vladgolubev/serverless-libreoffice)
 - [aws-lambda-tesseract](https://github.com/shelfio/aws-lambda-tesseract)
 - [aws-lambda-brotli-unpacker](https://github.com/shelfio/aws-lambda-brotli-unpacker)
