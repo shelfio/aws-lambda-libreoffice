@@ -1,24 +1,28 @@
-version: 2
+executors:
+  node8:
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/repo
+
+version: 2.1
 
 jobs:
   build:
-    docker:
-      - image: circleci/node:8
-
-    working_directory: ~/repo
-
+    executor: node8
     steps:
       - checkout
+
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
 
       - run: yarn
-      - run: yarn test
 
       - save_cache:
           paths:
             - node_modules
             - yarn.lock
           key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run: yarn test
