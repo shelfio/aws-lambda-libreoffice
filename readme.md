@@ -46,7 +46,8 @@ execSync(`${loBinary} ${defaultArgs.join(' ')} --convert-to pdf file.docx --outd
 
 ### Test
 
-Smoke test that it works: `yarn build && docker run --rm -v "$PWD":/var/task lambci/lambda:nodejs8.10 lambda.test.handler`
+Smoke test that it works: `./test.sh`.
+Make sure to clone [libreoffice-lambda-layer](https://github.com/shelfio/libreoffice-lambda-layer) repo alongside
 
 ## License
 

@@ -1,7 +1,7 @@
 import fs from 'fs';
 import del from 'del';
 
-export function cleanupTempFiles() {
+export function cleanupTempFiles(): void {
   for (let file of fs.readdirSync(`/tmp`)) {
     if (file.endsWith('.tmp') === true || file.startsWith('OSL_PIPE')) {
       try {
