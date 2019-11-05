@@ -41,10 +41,10 @@
     "is-video": "1.0.1"
   },
   "devDependencies": {
-    "@babel/cli": "7.6.4",
-    "@babel/core": "7.6.4",
-    "@babel/preset-env": "7.6.3",
-    "@babel/preset-typescript": "7.6.0",
+    "@babel/cli": "7.7.0",
+    "@babel/core": "7.7.0",
+    "@babel/preset-env": "7.7.1",
+    "@babel/preset-typescript": "7.7.0",
     "@shelf/eslint-config": "0.9.1",
     "@types/jest": "24.0.21",
     "@types/node": "8",
@@ -54,7 +54,7 @@
     "jest": "24.9.0",
     "lint-staged": "9.4.2",
     "prettier": "1.18.2",
-    "typescript": "3.6.4"
+    "typescript": "3.7.2"
   },
   "jest": {
     "testEnvironment": "node"
