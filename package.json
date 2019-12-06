@@ -41,9 +41,9 @@
     "is-video": "1.0.1"
   },
   "devDependencies": {
-    "@babel/cli": "7.7.4",
-    "@babel/core": "7.7.4",
-    "@babel/preset-env": "7.7.4",
+    "@babel/cli": "7.7.5",
+    "@babel/core": "7.7.5",
+    "@babel/preset-env": "7.7.5",
     "@babel/preset-typescript": "7.7.4",
     "@shelf/eslint-config": "0.12.1",
     "@types/jest": "24.0.23",
