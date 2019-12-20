@@ -49,12 +49,12 @@
     "@types/jest": "24.0.24",
     "@types/node": "8",
     "babel-jest": "24.9.0",
-    "eslint": "6.7.2",
+    "eslint": "6.8.0",
     "husky": "3.1.0",
     "jest": "24.9.0",
     "lint-staged": "9.5.0",
     "prettier": "1.19.1",
-    "typescript": "3.7.3"
+    "typescript": "3.7.4"
   },
   "jest": {
     "testEnvironment": "node"
