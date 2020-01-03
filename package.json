@@ -10,7 +10,7 @@
     "url": "shelf.io"
   },
   "engines": {
-    "node": ">=8.10"
+    "node": ">=10.16.0"
   },
   "scripts": {
     "build": "rm -rf lib/ && yarn build:types && babel src --out-dir lib --ignore '**/*.test.ts' --extensions '.ts' --copy-files",
