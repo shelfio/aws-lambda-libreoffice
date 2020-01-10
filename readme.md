@@ -4,7 +4,7 @@
 
 Inspired by [chrome-aws-lambda](https://github.com/alixaxel/chrome-aws-lambda)
 
-:information_source: Compiled LibreOffice version: 6.1.0.0.alpha0
+:information_source: Compiled LibreOffice version: 6.4.0.1
 
 ## Install
 
@@ -35,11 +35,15 @@ module.exports.handler = async () => {
 Or if you want more control:
 
 ```js
-const {getExecutablePath, defaultArgs} = require('@shelf/aws-lambda-libreoffice');
+const {unpack, defaultArgs} = require('@shelf/aws-lambda-libreoffice');
 
-const loBinary = await getExecutablePath(); // /tmp/instdir/program/soffice
+await unpack(); // default path /tmp/instdir/program/soffice.bin
 
-execSync(`${loBinary} ${defaultArgs.join(' ')} --convert-to pdf file.docx --outdir /tmp`);
+execSync(
+  `/tmp/instdir/program/soffice.bin ${defaultArgs.join(
+    ' '
+  )} --convert-to pdf file.docx --outdir /tmp`
+);
 ```
 
 ## See Also
