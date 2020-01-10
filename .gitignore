@@ -1,7 +1,26 @@
-.idea/
+.vscode/
+.serverless/
 coverage/
-node_modules/
-temp
-*.log
-.DS_Store
 lib/
+node_modules/
+
+*.log
+junit.xml
+draft.js
+*.draft.js
+yarn.lock
+
+.env
+
+# User-specific stuff
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/shelf
+
+# File-based project format
+*.iws
+
+.idea/$CACHE_FILE$
+.idea/$PRODUCT_WORKSPACE_FILE$
+.idea/.gitignore
