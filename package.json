@@ -1,44 +1,61 @@
 {
   "name": "@shelf/aws-lambda-libreoffice",
   "version": "2.2.0",
-  "description": "85 MB LibreOffice to fit inside AWS Lambda compressed with Brotli",
-  "license": "MIT",
-  "repository": "shelfio/aws-lambda-libreoffice",
-  "author": {
-    "name": "Vlad Holubiev",
-    "email": "vlad@shelf.io",
-    "url": "shelf.io"
-  },
-  "engines": {
-    "node": ">=8.10"
-  },
-  "scripts": {
-    "build": "rm -rf lib/ && yarn build:types && babel src --out-dir lib --ignore '**/*.test.ts' --extensions '.ts' --copy-files",
-    "build:types": "tsc --emitDeclarationOnly --declaration --isolatedModules false --declarationDir lib",
-    "coverage": "jest --coverage",
-    "lint": "eslint . --fix",
-    "prepack": "yarn build",
-    "test": "jest src",
-    "type-check": "tsc --noEmit",
-    "type-check:watch": "npm run type-check -- --watch"
-  },
-  "files": [
-    "lib"
-  ],
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "description": "92 MB LibreOffice to fit inside AWS Lambda compressed with Brotli",
   "keywords": [
     "aws lambda",
     "libreoffice",
     "serverless",
     "pdf"
   ],
+  "repository": "shelfio/aws-lambda-libreoffice",
+  "license": "MIT",
+  "author": {
+    "name": "Vlad Holubiev",
+    "email": "vlad@shelf.io",
+    "url": "https://shelf.io"
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "lib",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "rm -rf lib/ && yarn build:types && yarn build:code",
+    "build:code": "babel src --out-dir lib --ignore '**/*.test.ts' --extensions '.ts' && find ./lib -name '*.test.d.ts' -delete",
+    "build:types": "tsc --emitDeclarationOnly --declaration --isolatedModules false --declarationDir lib",
+    "coverage": "jest --coverage",
+    "lint": "eslint . --ext .js,.ts,.json --fix",
+    "lint:ci": "eslint . --ext .js,.ts,.json",
+    "prepack": "yarn build",
+    "test": "jest src",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{html,json,md,yml}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{js,ts}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
   "dependencies": {
-    "@shelf/aws-lambda-brotli-unpacker": "0.0.2",
     "@shelf/is-audio-filepath": "0.0.3",
     "del": "4.1.1",
     "is-image": "3.0.0",
-    "is-video": "1.0.1"
+    "is-video": "1.0.1",
+    "tar-fs": "2.0.0"
   },
   "devDependencies": {
     "@babel/cli": "7.7.7",
@@ -47,7 +64,7 @@
     "@babel/preset-typescript": "7.7.7",
     "@shelf/eslint-config": "0.13.0",
     "@types/jest": "24.0.25",
-    "@types/node": "8",
+    "@types/node": "12",
     "babel-jest": "24.9.0",
     "eslint": "6.8.0",
     "husky": "4.0.1",
@@ -56,23 +73,8 @@
     "prettier": "1.19.1",
     "typescript": "3.7.4"
   },
-  "jest": {
-    "testEnvironment": "node"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{html,json,md,yml}": [
-      "prettier --write",
-      "git add"
-    ]
+  "engines": {
+    "node": ">=12"
   },
   "publishConfig": {
     "access": "public"

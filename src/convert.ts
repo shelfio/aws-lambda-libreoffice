@@ -1,5 +1,5 @@
-import {unpack} from '@shelf/aws-lambda-brotli-unpacker';
 import {execSync} from 'child_process';
+import {unpack} from './unpack';
 import {cleanupTempFiles} from './cleanup';
 import {getConvertedFilePath} from './logs';
 
@@ -10,16 +10,12 @@ export const defaultArgs = [
   '--view',
   '--nolockcheck',
   '--nologo',
-  '--norestore'
+  '--norestore',
+  '--nofirststartwizard'
 ];
 
 const INPUT_PATH = '/opt/lo.tar.br';
-const OUTPUT_PATH = '/tmp/instdir/program/soffice';
-
-// see https://github.com/alixaxel/chrome-aws-lambda
-export async function getExecutablePath(): Promise<string> {
-  return unpack({inputPath: INPUT_PATH, outputPath: OUTPUT_PATH});
-}
+const OUTPUT_PATH = '/tmp/instdir/program/soffice.bin';
 
 /**
  * Converts a file in /tmp to the desired file format
@@ -28,13 +24,18 @@ export async function getExecutablePath(): Promise<string> {
  * @return {Promise<String>} Absolute path to the converted file
  */
 export async function convertTo(filename: string, format: string): Promise<string> {
+  let logs;
   cleanupTempFiles();
-
-  const binary = await getExecutablePath();
-
-  const logs = execSync(
-    `cd /tmp && ${binary} ${defaultArgs.join(' ')} --convert-to ${format} --outdir /tmp ${filename}`
-  );
+  await unpack({inputPath: INPUT_PATH});
+  const cmd = `cd /tmp && ${OUTPUT_PATH} ${defaultArgs.join(
+    ' '
+  )} --convert-to ${format} --outdir /tmp /tmp/${filename}`;
+  // due to unknown issue, we need to run command twice
+  try {
+    execSync(cmd);
+  } catch (e) {
+    logs = execSync(cmd);
+  }
 
   execSync(`rm /tmp/${filename}`);
   cleanupTempFiles();
