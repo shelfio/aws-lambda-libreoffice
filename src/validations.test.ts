@@ -8,6 +8,7 @@ describe('canBeConvertedToPDF', () => {
     ${'image.mp3'}  | ${false}
     ${'image.wav'}  | ${false}
     ${'image.chm'}  | ${false}
+    ${'image.gdoc'} | ${false}
     ${'image.docx'} | ${true}
     ${'image.pdf'}  | ${true}
   `('should return $expected for filename $filename', ({filename, expected}) => {
