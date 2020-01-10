@@ -1,7 +1,7 @@
 executors:
   node12:
     docker:
-      - image: circleci/node:12
+      - image: circleci/node:latest
     working_directory: ~/repo
 
 version: 2.1
@@ -15,7 +15,6 @@ jobs:
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
 
       - run: yarn
 
@@ -26,4 +25,5 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: yarn test
+      - run: cat package.json
       - run: yarn lint:ci
