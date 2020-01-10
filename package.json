@@ -50,7 +50,7 @@
     "@types/node": "8",
     "babel-jest": "24.9.0",
     "eslint": "6.8.0",
-    "husky": "4.0.1",
+    "husky": "4.0.6",
     "jest": "24.9.0",
     "lint-staged": "9.5.0",
     "prettier": "1.19.1",
