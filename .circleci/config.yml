@@ -16,7 +16,9 @@ commands:
 
 jobs:
   build:
-    executor: node12
+    executor:
+      name: node/default
+      tag: '12'
     steps:
       - checkout
       - install_deps
