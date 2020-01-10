@@ -3,6 +3,7 @@ import zlib from 'zlib';
 import fs from 'fs';
 import path from 'path';
 
+// see https://github.com/alixaxel/chrome-aws-lambda
 export function unpack({
   inputPath,
   outputBaseDir = `/tmp`,

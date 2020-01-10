@@ -19,20 +19,23 @@ const OUTPUT_PATH = '/tmp/instdir/program/soffice.bin';
 
 /**
  * Converts a file in /tmp to the desired file format
- * see https://github.com/alixaxel/chrome-aws-lambda
  * @param {String} filename Name of the file to convert located in /tmp directory
  * @param {String} format File format to convert incoming file to
  * @return {Promise<String>} Absolute path to the converted file
  */
 export async function convertTo(filename: string, format: string): Promise<string> {
+  let logs;
   cleanupTempFiles();
   await unpack({inputPath: INPUT_PATH});
-
-  const logs = execSync(
-    `cd /tmp && ${OUTPUT_PATH} ${defaultArgs.join(
-      ' '
-    )} --convert-to ${format} --outdir /tmp /tmp/${filename}`
-  );
+  const cmd = `cd /tmp && ${OUTPUT_PATH} ${defaultArgs.join(
+    ' '
+  )} --convert-to ${format} --outdir /tmp /tmp/${filename}`;
+  // due to unknown issue, we need to run command twice
+  try {
+    execSync(cmd);
+  } catch (e) {
+    logs = execSync(cmd);
+  }
 
   execSync(`rm /tmp/${filename}`);
   cleanupTempFiles();

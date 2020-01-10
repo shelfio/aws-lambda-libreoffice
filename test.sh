@@ -3,7 +3,7 @@
 cd ../libreoffice-lambda-layer
 
 rm -rf layer
-unzip layer.zip -d layer
+unzip layers.zip -d layer
 
 cd layer
 brotli -d lo.tar.br
@@ -15,4 +15,4 @@ yarn build
 docker run --rm \
   -v "$PWD":/var/task \
   -v "$PWD"/../libreoffice-lambda-layer/layer:/opt \
-  lambci/lambda:nodejs8.10 test.handler
+  lambci/lambda:nodejs12.x test.handler

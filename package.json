@@ -13,7 +13,8 @@
     "node": ">=12"
   },
   "scripts": {
-    "build": "rm -rf lib/ && yarn build:types && babel src --out-dir lib --ignore '**/*.test.ts' --extensions '.ts' --copy-files",
+    "build": "rm -rf lib/ && yarn build:types && yarn build:code",
+    "build:code": "babel src --out-dir lib --ignore '**/*.test.ts' --extensions '.ts' && find ./lib -name '*.test.d.ts' -delete",
     "build:types": "tsc --emitDeclarationOnly --declaration --isolatedModules false --declarationDir lib",
     "coverage": "jest --coverage",
     "lint": "eslint . --ext .js,.ts,.json --fix",
@@ -38,7 +39,8 @@
     "@shelf/is-audio-filepath": "0.0.3",
     "del": "4.1.1",
     "is-image": "3.0.0",
-    "is-video": "1.0.1"
+    "is-video": "1.0.1",
+    "tar-fs": "2.0.0"
   },
   "devDependencies": {
     "@babel/cli": "7.7.7",
