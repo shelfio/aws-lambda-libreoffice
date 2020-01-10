@@ -1,14 +1,14 @@
 executors:
-  node8:
+  node12:
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:12
     working_directory: ~/repo
 
 version: 2.1
 
 jobs:
   build:
-    executor: node8
+    executor: node12
     steps:
       - checkout
 

@@ -10,7 +10,7 @@
     "url": "shelf.io"
   },
   "engines": {
-    "node": ">=8.10"
+    "node": ">=12"
   },
   "scripts": {
     "build": "rm -rf lib/ && yarn build:types && babel src --out-dir lib --ignore '**/*.test.ts' --extensions '.ts' --copy-files",
@@ -34,7 +34,6 @@
     "pdf"
   ],
   "dependencies": {
-    "@shelf/aws-lambda-brotli-unpacker": "0.0.2",
     "@shelf/is-audio-filepath": "0.0.3",
     "del": "4.1.1",
     "is-image": "3.0.0",
@@ -47,7 +46,7 @@
     "@babel/preset-typescript": "7.7.7",
     "@shelf/eslint-config": "0.13.0",
     "@types/jest": "24.0.25",
-    "@types/node": "8",
+    "@types/node": "12",
     "babel-jest": "24.9.0",
     "eslint": "6.8.0",
     "husky": "4.0.1",
