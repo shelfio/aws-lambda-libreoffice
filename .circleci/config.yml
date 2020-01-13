@@ -1,28 +1,27 @@
-executors:
-  node12:
-    docker:
-      - image: circleci/node:latest
-    working_directory: ~/repo
-
 version: 2.1
+
+orbs:
+  node: circleci/node@1.1.6
+
+commands:
+  install_deps:
+    steps:
+      - node/with-cache:
+          cache-version: v1-all
+          cache-key: yarn.lock
+          dir: ~/repo/node_modules
+          use-strict-cache: true
+          steps:
+            - run: yarn install --pure-lockfile --no-progress
 
 jobs:
   build:
-    executor: node12
+    executor:
+      name: node/default
+      tag: '12'
     steps:
       - checkout
-
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-
-      - run: yarn
-
-      - save_cache:
-          paths:
-            - node_modules
-            - yarn.lock
-          key: v1-dependencies-{{ checksum "package.json" }}
-
+      - install_deps
       - run: yarn test
+      - run: yarn type-check
       - run: yarn lint:ci

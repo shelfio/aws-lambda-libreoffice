@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "@shelf/is-audio-filepath": "0.0.3",
-    "del": "4.1.1",
+    "del": "5.1.0",
     "is-image": "3.0.0",
     "is-video": "1.0.1",
     "tar-fs": "2.0.0"
@@ -67,7 +67,7 @@
     "@types/node": "12",
     "babel-jest": "24.9.0",
     "eslint": "6.8.0",
-    "husky": "4.0.1",
+    "husky": "4.0.6",
     "jest": "24.9.0",
     "lint-staged": "9.5.0",
     "prettier": "1.19.1",
