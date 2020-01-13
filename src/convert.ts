@@ -32,7 +32,7 @@ export async function convertTo(filename: string, format: string): Promise<strin
   )} --convert-to ${format} --outdir /tmp /tmp/${filename}`;
   // due to unknown issue, we need to run command twice
   try {
-    execSync(cmd);
+    logs = execSync(cmd);
   } catch (e) {
     logs = execSync(cmd);
   }
