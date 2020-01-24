@@ -1079,10 +1079,10 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@shelf/eslint-config@0.14.0":
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/@shelf/eslint-config/-/eslint-config-0.14.0.tgz#2787832b2b7f21bee68aa57b9f922f7a5d3b5daa"
-  integrity sha512-WsduMrbiM+2Dj9X71mGmoYvtTfrMhPSM6Gw69MXsXlwdFVcCRlFdqCOjTtPXIM9bzhk/VIPLufL40ihibnmNnw==
+"@shelf/eslint-config@0.14.2":
+  version "0.14.2"
+  resolved "https://registry.yarnpkg.com/@shelf/eslint-config/-/eslint-config-0.14.2.tgz#50bfe8037de4e8a731ee57042ed88d7ac9871a2e"
+  integrity sha512-8Yz7wTeqtqRoWucm2qAzNrATSBYEOBxcOckIdvKqiZcba3p6cGnBaGUGvmZJhcKXbd+Ti+Mc//TzDSYPZiAfmQ==
   dependencies:
     "@typescript-eslint/eslint-plugin" "2.16.0"
     "@typescript-eslint/parser" "2.16.0"
