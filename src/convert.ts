@@ -1,4 +1,5 @@
 import {execSync} from 'child_process';
+import {basename} from 'path';
 import {unpack} from './unpack';
 import {cleanupTempFiles} from './cleanup';
 import {getConvertedFilePath} from './logs';
@@ -34,9 +35,15 @@ export async function convertTo(
   cleanupTempFiles();
   await unpack({inputPath: INPUT_PATH});
 
-  extensions.forEach(extension => {
-    execSync(`${UNOPKG_OUTPUT_PATH} add --shared ${extension}`);
-  });
+  if (extensions.length > 0) {
+    const enabledExtensions = execSync(`${UNOPKG_OUTPUT_PATH} list --shared`);
+
+    extensions.forEach(extension => {
+      if (!enabledExtensions.includes(basename(extension))) {
+        execSync(`${UNOPKG_OUTPUT_PATH} add --shared ${extension}`);
+      }
+    });
+  }
 
   const cmd = `cd /tmp && ${OUTPUT_PATH} ${defaultArgs.join(
     ' '
