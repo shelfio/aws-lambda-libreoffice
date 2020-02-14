@@ -17,6 +17,8 @@ Follow the instructions on how to add a lambda layer in [that repo](https://gith
 
 ## Usage
 
+Please allocate at least **1536 MB** of RAM for your Lambda function.
+
 ```js
 const {convertTo, canBeConvertedToPDF} = require('@shelf/aws-lambda-libreoffice');
 
