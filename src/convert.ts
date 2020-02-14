@@ -25,11 +25,7 @@ const UNOPKG_OUTPUT_PATH = '/tmp/instdir/program/unopkg.bin';
  * @param {Array} extensions
  * @return {Promise<String>} Absolute path to the converted file
  */
-export async function convertTo(
-  filename: string,
-  format: string,
-  extensions: string[] = []
-): Promise<string> {
+export async function convertTo(filename: string, format: string, extensions: string[] = []): Promise<string> {
   let logs;
   cleanupTempFiles();
   await unpack({inputPath: INPUT_PATH});
