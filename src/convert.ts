@@ -24,24 +24,24 @@ const UNOPKG_OUTPUT_PATH = '/tmp/instdir/program/unopkg.bin';
  * @param {String} filename Name of the file to convert located in /tmp directory
  * @param {String} format File format to convert incoming file to
  * @param {Array} extensions List of LibreOffice extension paths (.oxt files)
+ * @param {Boolean} shouldThrowOnExtensionFail Throw exceptions if extension was not loaded
  * @return {Promise<String>} Absolute path to the converted file
  */
 export async function convertTo(
   filename: string,
   format: string,
-  extensions: string[] = []
+  extensions: string[] = [],
+  shouldThrowOnExtensionFail = true
 ): Promise<string> {
   let logs;
   cleanupTempFiles();
   await unpack({inputPath: INPUT_PATH});
 
-  if (extensions.length > 0) {
+  if (extensions.length) {
     const enabledExtensions = execSync(`${UNOPKG_OUTPUT_PATH} list --shared`);
 
     extensions.forEach(extension => {
-      if (!enabledExtensions.includes(basename(extension))) {
-        execSync(`${UNOPKG_OUTPUT_PATH} add --shared ${extension}`);
-      }
+      enableExtension(enabledExtensions, extension, shouldThrowOnExtensionFail);
     });
   }
 
@@ -59,4 +59,20 @@ export async function convertTo(
   cleanupTempFiles();
 
   return getConvertedFilePath(logs.toString('utf8'));
+}
+
+function enableExtension(
+  enabledExtensions: Buffer,
+  extension: string,
+  shouldThrowOnExtensionFail: boolean
+) {
+  if (!enabledExtensions.includes(basename(extension))) {
+    try {
+      execSync(`${UNOPKG_OUTPUT_PATH} add --shared ${extension}`);
+    } catch (e) {
+      if (shouldThrowOnExtensionFail) {
+        throw e;
+      }
+    }
+  }
 }
