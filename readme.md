@@ -17,8 +17,6 @@ Follow the instructions on how to add a lambda layer in [that repo](https://gith
 
 ## Usage
 
-Please allocate at least **1536 MB** of RAM for your Lambda function.
-
 ```js
 const {convertTo, canBeConvertedToPDF} = require('@shelf/aws-lambda-libreoffice');
 
@@ -47,6 +45,11 @@ execSync(
   )} --convert-to pdf file.docx --outdir /tmp`
 );
 ```
+
+## Troubleshooting
+
+- Please allocate at least **1536 MB** of RAM for your Lambda function.
+- It works only in Amazon Linux 2, so it won't work locally on Linux or macOS. However, you could run it in Docker using `lambci/lambda:nodejs12.x` image
 
 ## See Also
 
