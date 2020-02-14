@@ -22,10 +22,14 @@ const UNOPKG_OUTPUT_PATH = '/tmp/instdir/program/unopkg.bin';
  * Converts a file in /tmp to the desired file format
  * @param {String} filename Name of the file to convert located in /tmp directory
  * @param {String} format File format to convert incoming file to
- * @param {Array} extensions
+ * @param {Array} extensions List of LibreOffice extension paths (.oxt files)
  * @return {Promise<String>} Absolute path to the converted file
  */
-export async function convertTo(filename: string, format: string, extensions: string[] = []): Promise<string> {
+export async function convertTo(
+  filename: string,
+  format: string,
+  extensions: string[] = []
+): Promise<string> {
   let logs;
   cleanupTempFiles();
   await unpack({inputPath: INPUT_PATH});
