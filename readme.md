@@ -50,6 +50,7 @@ execSync(
 
 - Please allocate at least **1536 MB** of RAM for your Lambda function.
 - It works only in Amazon Linux 2, so it won't work locally on Linux or macOS. However, you could run it in Docker using `lambci/lambda:nodejs12.x` image
+- If some file fails to be converted to PDF, try converting it to PDF on your computer first. This might be an issue with LibreOffice itself
 
 ## See Also
 
