@@ -19,26 +19,30 @@ const INPUT_PATH = '/opt/lo.tar.br';
 const OUTPUT_PATH = '/tmp/instdir/program/soffice.bin';
 const UNOPKG_OUTPUT_PATH = '/tmp/instdir/program/unopkg.bin';
 
+type ExtensionOptions = {
+  extensions: string[];
+  shouldThrowOnExtensionFail?: boolean;
+};
+
 /**
  * Converts a file in /tmp to the desired file format
  * @param {String} filename Name of the file to convert located in /tmp directory
  * @param {String} format File format to convert incoming file to
- * @param {Array} extensions List of LibreOffice extension paths (.oxt files)
- * @param {Boolean} shouldThrowOnExtensionFail Throw exceptions if extension was not loaded
+ * @param {ExtensionOptions} options LibreOffice extensions to be enabled during file conversion
  * @return {Promise<String>} Absolute path to the converted file
  */
 export async function convertTo(
   filename: string,
   format: string,
-  extensions: string[] = [],
-  shouldThrowOnExtensionFail = true
+  options?: ExtensionOptions
 ): Promise<string> {
   let logs;
   cleanupTempFiles();
   await unpack({inputPath: INPUT_PATH});
 
-  if (extensions.length) {
-    const enabledExtensions = execSync(`${UNOPKG_OUTPUT_PATH} list --shared`);
+  if (options && options.extensions.length) {
+    const {extensions, shouldThrowOnExtensionFail = true} = options;
+    const enabledExtensions = execSync(`${UNOPKG_OUTPUT_PATH} list --shared`).toString();
 
     extensions.forEach(extension => {
       enableExtension(enabledExtensions, extension, shouldThrowOnExtensionFail);
@@ -62,10 +66,10 @@ export async function convertTo(
 }
 
 function enableExtension(
-  enabledExtensions: Buffer,
+  enabledExtensions: string,
   extension: string,
   shouldThrowOnExtensionFail: boolean
-) {
+): void {
   if (!enabledExtensions.includes(basename(extension))) {
     try {
       execSync(`${UNOPKG_OUTPUT_PATH} add --shared ${extension}`);
