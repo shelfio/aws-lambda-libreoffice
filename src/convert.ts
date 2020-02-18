@@ -40,7 +40,7 @@ export async function convertTo(
   cleanupTempFiles();
   await unpack({inputPath: INPUT_PATH});
 
-  if (options && options.extensions.length) {
+  if (options && options.extensions && options.extensions.length) {
     const {extensions, shouldThrowOnExtensionFail = true} = options;
     const enabledExtensions = execSync(`${UNOPKG_OUTPUT_PATH} list --shared`).toString();
 
