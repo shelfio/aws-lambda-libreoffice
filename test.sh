@@ -3,7 +3,7 @@
 cd ../libreoffice-lambda-layer
 
 rm -rf layer
-unzip layers.zip -d layer
+unzip layer.tar.br.zip -d layer
 
 cd layer
 brotli -d lo.tar.br
