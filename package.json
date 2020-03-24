@@ -55,7 +55,7 @@
     "del": "5.1.0",
     "is-image": "3.0.0",
     "is-video": "1.0.1",
-    "tar-fs": "2.0.0"
+    "tar-fs": "2.0.1"
   },
   "devDependencies": {
     "@babel/cli": "7.8.4",
