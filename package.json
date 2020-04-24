@@ -47,6 +47,7 @@
       "git add"
     ]
   },
+  "prettier": "@shelf/prettier-config",
   "jest": {
     "testEnvironment": "node"
   },
@@ -55,7 +56,7 @@
     "del": "5.1.0",
     "is-image": "3.0.0",
     "is-video": "1.0.1",
-    "tar-fs": "2.0.0"
+    "tar-fs": "2.0.1"
   },
   "devDependencies": {
     "@babel/cli": "7.8.4",
@@ -63,14 +64,15 @@
     "@babel/preset-env": "7.9.5",
     "@babel/preset-typescript": "7.9.0",
     "@shelf/eslint-config": "0.14.2",
+    "@shelf/prettier-config": "0.0.7",
     "@types/jest": "25.2.1",
     "@types/node": "12",
-    "babel-jest": "25.3.0",
+    "babel-jest": "25.4.0",
     "eslint": "6.8.0",
     "husky": "4.2.5",
-    "jest": "25.3.0",
-    "lint-staged": "10.1.6",
-    "prettier": "1.19.1",
+    "jest": "25.4.0",
+    "lint-staged": "10.1.7",
+    "prettier": "2.0.5",
     "typescript": "3.8.3"
   },
   "engines": {
