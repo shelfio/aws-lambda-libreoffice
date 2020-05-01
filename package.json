@@ -60,8 +60,8 @@
   },
   "devDependencies": {
     "@babel/cli": "7.8.4",
-    "@babel/core": "7.9.0",
-    "@babel/preset-env": "7.9.5",
+    "@babel/core": "7.9.6",
+    "@babel/preset-env": "7.9.6",
     "@babel/preset-typescript": "7.9.0",
     "@shelf/eslint-config": "0.14.2",
     "@shelf/prettier-config": "0.0.7",
