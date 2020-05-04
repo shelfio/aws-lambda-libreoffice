@@ -65,6 +65,15 @@ execSync(
 Smoke test that it works: `./test.sh`.
 Make sure to clone [libreoffice-lambda-layer](https://github.com/shelfio/libreoffice-lambda-layer) repo alongside
 
+## Publish
+
+```sh
+$ git checkout master
+$ yarn version
+$ yarn publish
+$ git push origin master
+```
+
 ## License
 
 MIT © [Shelf](https://shelf.io)
