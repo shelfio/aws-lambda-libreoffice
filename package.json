@@ -59,9 +59,9 @@
     "tar-fs": "2.0.1"
   },
   "devDependencies": {
-    "@babel/cli": "7.10.1",
-    "@babel/core": "7.10.2",
-    "@babel/preset-env": "7.10.2",
+    "@babel/cli": "7.10.3",
+    "@babel/core": "7.10.3",
+    "@babel/preset-env": "7.10.3",
     "@babel/preset-typescript": "7.10.1",
     "@shelf/eslint-config": "0.17.0",
     "@shelf/prettier-config": "0.0.7",
