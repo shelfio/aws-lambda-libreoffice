@@ -68,7 +68,7 @@
     "@types/jest": "26.0.0",
     "@types/node": "12",
     "babel-jest": "26.0.1",
-    "eslint": "7.3.0",
+    "eslint": "7.3.1",
     "husky": "4.2.5",
     "jest": "26.0.1",
     "lint-staged": "10.2.11",
