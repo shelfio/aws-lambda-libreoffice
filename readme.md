@@ -10,7 +10,7 @@ $ yarn add @shelf/aws-lambda-libreoffice
 
 ## Usage (For version 4.x; based on a Lambda Docker Image)
 
-This version requires Node 16.x or higher.
+This version requires Node 16.x or higher. It also includes CJK fonts bundled.
 
 First, you need to create a Docker image for your Lambda function. See the example at [libreoffice-lambda-base-image](https://github.com/shelfio/libreoffice-lambda-base-image) repo.
 
