@@ -10,16 +10,33 @@ $ yarn add @shelf/aws-lambda-libreoffice
 
 ## Usage (For version 4.x; based on a Lambda Docker Image)
 
+This version requires Node 16.x or higher.
+
 First, you need to create a Docker image for your Lambda function. See the example at [libreoffice-lambda-base-image](https://github.com/shelfio/libreoffice-lambda-base-image) repo.
 
 Given you have packaged your Lambda function as a Docker image, you can now use this package:
 
 ```javascript
+const {convertTo, canBeConvertedToPDF} = require('@shelf/aws-lambda-libreoffice');
+
+module.exports.handler = async () => {
+  // assuming there is a document.docx file inside /tmp dir
+  // original file will be deleted afterwards
+
+  if (!canBeConvertedToPDF('document.docx')) {
+    return false;
+  }
+
+  return convertTo('document.docx', 'pdf'); // returns /tmp/document.pdf
+};
 ```
 
 ## Usage (For version 3.x; based on a Lambda Layer)
 
-**NOTE:** Since version 2.0.0 npm package no longer ships the 85 MB LibreOffice but relies upon [libreoffice-lambda-layer](https://github.com/shelfio/libreoffice-lambda-layer) instead.
+This version requires Node 12.x or higher.
+
+**NOTE:** Since version 2.0.0 npm package no longer ships the 85 MB LibreOffice
+but relies upon [libreoffice-lambda-layer](https://github.com/shelfio/libreoffice-lambda-layer) instead.
 Follow the instructions on how to add a lambda layer in [that repo](https://github.com/shelfio/libreoffice-lambda-layer).
 
 ```js
