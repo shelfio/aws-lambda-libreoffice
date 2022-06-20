@@ -43,9 +43,9 @@ export function convertTo(filename: string, format: string, options?: ExtensionO
   }
 
   const argumentsString = defaultArgs.join(' ');
-  const cmd = `cd /tmp && ${LO_BINARY_PATH} ${argumentsString} --convert-to ${format} --outdir /tmp /tmp/${filename
-    .split(/\\ /)
-    .join(' ')}`;
+  const outputFilename = filename.split(/\\ /).join(' ');
+
+  const cmd = `cd /tmp && ${LO_BINARY_PATH} ${argumentsString} --convert-to ${format} --outdir /tmp /tmp/${outputFilename}`;
 
   // due to an unknown issue, we need to run command twice
   try {
@@ -54,7 +54,7 @@ export function convertTo(filename: string, format: string, options?: ExtensionO
     logs = execSync(cmd);
   }
 
-  execSync(`rm /tmp/${filename.split(/\\ /).join(' ')}`);
+  execSync(`rm /tmp/${outputFilename}`);
   cleanupTempFiles();
 
   return getConvertedFilePath(logs.toString('utf8'));
@@ -65,13 +65,15 @@ function enableExtension(
   extension: string,
   shouldThrowOnExtensionFail: boolean
 ): void {
-  if (!enabledExtensions.includes(basename(extension))) {
-    try {
-      execSync(`${UNOPKG_OUTPUT_PATH} add --shared ${extension}`);
-    } catch (e) {
-      if (shouldThrowOnExtensionFail) {
-        throw e;
-      }
+  if (enabledExtensions.includes(basename(extension))) {
+    return;
+  }
+
+  try {
+    execSync(`${UNOPKG_OUTPUT_PATH} add --shared ${extension}`);
+  } catch (e) {
+    if (shouldThrowOnExtensionFail) {
+      throw e;
     }
   }
 }
