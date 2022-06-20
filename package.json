@@ -51,8 +51,7 @@
     "@shelf/is-audio-filepath": "0.0.3",
     "del": "5.1.0",
     "is-image": "3.0.0",
-    "is-video": "1.0.1",
-    "tar-fs": "2.0.1"
+    "is-video": "1.0.1"
   },
   "babel": {
     "extends": "@shelf/babel-config/backend"

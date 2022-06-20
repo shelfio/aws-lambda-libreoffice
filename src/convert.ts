@@ -2,7 +2,6 @@ import {execSync} from 'child_process';
 import {basename} from 'path';
 import {cleanupTempFiles} from './cleanup';
 import {getConvertedFilePath} from './logs';
-import {unpack} from './unpack';
 
 export const defaultArgs = [
   '--headless',
@@ -15,7 +14,6 @@ export const defaultArgs = [
   '--nofirststartwizard'
 ];
 
-const INPUT_PATH = '/opt/lo.tar.br';
 const OUTPUT_PATH = '/tmp/instdir/program/soffice.bin';
 const UNOPKG_OUTPUT_PATH = '/tmp/instdir/program/unopkg.bin';
 
@@ -38,7 +36,6 @@ export async function convertTo(
 ): Promise<string> {
   let logs;
   cleanupTempFiles();
-  await unpack({inputPath: INPUT_PATH});
 
   if (options && options.extensions && options.extensions.length) {
     const {extensions, shouldThrowOnExtensionFail = true} = options;
