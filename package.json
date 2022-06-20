@@ -1,6 +1,6 @@
 {
   "name": "@shelf/aws-lambda-libreoffice",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "Utility to work with Docker version of LibreOffice in Lambda",
   "keywords": [
     "aws lambda",
