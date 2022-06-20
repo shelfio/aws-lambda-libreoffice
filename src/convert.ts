@@ -11,11 +11,11 @@ export const defaultArgs = [
   '--nolockcheck',
   '--nologo',
   '--norestore',
-  '--nofirststartwizard'
+  '--nofirststartwizard',
 ];
 
-const OUTPUT_PATH = '/tmp/instdir/program/soffice.bin';
-const UNOPKG_OUTPUT_PATH = '/tmp/instdir/program/unopkg.bin';
+const LO_BINARY_PATH = 'libreoffice7.3';
+const UNOPKG_OUTPUT_PATH = '/opt/libreoffice7.3/program/unopkg.bin';
 
 type ExtensionOptions = {
   extensions: string[];
@@ -29,11 +29,7 @@ type ExtensionOptions = {
  * @param {ExtensionOptions} options LibreOffice extensions to be enabled during file conversion
  * @return {Promise<String>} Absolute path to the converted file
  */
-export async function convertTo(
-  filename: string,
-  format: string,
-  options?: ExtensionOptions
-): Promise<string> {
+export function convertTo(filename: string, format: string, options?: ExtensionOptions): string {
   let logs;
   cleanupTempFiles();
 
@@ -46,10 +42,12 @@ export async function convertTo(
     });
   }
 
-  const cmd = `cd /tmp && ${OUTPUT_PATH} ${defaultArgs.join(
-    ' '
-  )} --convert-to ${format} --outdir /tmp /tmp/${filename.split(/\\ /).join(' ')}`;
-  // due to unknown issue, we need to run command twice
+  const argumentsString = defaultArgs.join(' ');
+  const cmd = `cd /tmp && ${LO_BINARY_PATH} ${argumentsString} --convert-to ${format} --outdir /tmp /tmp/${filename
+    .split(/\\ /)
+    .join(' ')}`;
+
+  // due to an unknown issue, we need to run command twice
   try {
     logs = execSync(cmd);
   } catch (e) {
