@@ -33,7 +33,7 @@ export function convertTo(filename: string, format: string, options?: ExtensionO
   let logs;
   cleanupTempFiles();
 
-  if (options && options.extensions && options.extensions.length) {
+  if (options?.extensions?.length) {
     const {extensions, shouldThrowOnExtensionFail = true} = options;
     const enabledExtensions = execSync(`${UNOPKG_OUTPUT_PATH} list --shared`).toString();
 
