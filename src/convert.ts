@@ -1,7 +1,6 @@
 import {execSync} from 'child_process';
 import {cleanupTempFiles} from './cleanup';
 import {getConvertedFilePath} from './logs';
-import {enableAllExtensions} from './extensions';
 
 export const DEFAULT_ARGS = [
   '--headless',
@@ -11,21 +10,11 @@ export const DEFAULT_ARGS = [
   '--nolockcheck',
   '--nologo',
   '--norestore',
-  '--nofirststartwizard',
 ];
 const LO_BINARY_PATH = 'libreoffice7.3';
 
-type Options = {
-  extensions: string[];
-  shouldThrowOnExtensionFail?: boolean;
-};
-
-export function convertTo(filename: string, format: string, options?: Options): string {
+export function convertTo(filename: string, format: string): string {
   cleanupTempFiles();
-
-  if (options?.extensions?.length) {
-    enableAllExtensions(options.extensions, options.shouldThrowOnExtensionFail);
-  }
 
   const argumentsString = DEFAULT_ARGS.join(' ');
   const outputFilename = filename.split(/\\ /).join(' ');
