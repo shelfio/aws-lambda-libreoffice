@@ -39,12 +39,10 @@
   },
   "lint-staged": {
     "*.{html,json,md,yml}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
     "*.{js,ts}": [
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ]
   },
   "prettier": "@shelf/prettier-config",

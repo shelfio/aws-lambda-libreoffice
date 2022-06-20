@@ -1,9 +1,8 @@
-import { execSync } from 'child_process';
-import { basename } from 'path';
-
-import { cleanupTempFiles } from './cleanup';
-import { getConvertedFilePath } from './logs';
-import { unpack } from './unpack';
+import {execSync} from 'child_process';
+import {basename} from 'path';
+import {cleanupTempFiles} from './cleanup';
+import {getConvertedFilePath} from './logs';
+import {unpack} from './unpack';
 
 export const defaultArgs = [
   '--headless',
@@ -52,7 +51,7 @@ export async function convertTo(
 
   const cmd = `cd /tmp && ${OUTPUT_PATH} ${defaultArgs.join(
     ' '
-  )} --convert-to ${format} --outdir /tmp /tmp/${filename.split(/\ /).join('\ ')}`;
+  )} --convert-to ${format} --outdir /tmp /tmp/${filename.split(/\\ /).join(' ')}`;
   // due to unknown issue, we need to run command twice
   try {
     logs = execSync(cmd);
@@ -60,7 +59,7 @@ export async function convertTo(
     logs = execSync(cmd);
   }
 
-  execSync(`rm /tmp/${filename.split(/\ /).join('\ ')}`);
+  execSync(`rm /tmp/${filename.split(/\\ /).join(' ')}`);
   cleanupTempFiles();
 
   return getConvertedFilePath(logs.toString('utf8'));
