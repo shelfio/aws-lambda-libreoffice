@@ -2,10 +2,10 @@
 const {writeFileSync} = require('fs');
 const {convertTo} = require('./lib');
 
-module.exports.handler = async () => {
+module.exports.handler = () => {
   writeFileSync('/tmp/test.txt', Buffer.from('Hello World!'));
 
-  const extensionOptions = {extensions: ['test_extension.oxt']};
+  const convertedFilePath = convertTo('test.txt', `pdf`);
 
-  return convertTo('test.txt', `"pdf:writer_pdf_Export"`, extensionOptions);
+  console.log({convertedFilePath});
 };
