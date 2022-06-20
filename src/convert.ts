@@ -1,7 +1,7 @@
 import {execSync} from 'child_process';
-import {basename} from 'path';
 import {cleanupTempFiles} from './cleanup';
 import {getConvertedFilePath} from './logs';
+import {enableExtension} from './extensions';
 
 export const defaultArgs = [
   '--headless',
@@ -58,22 +58,4 @@ export function convertTo(filename: string, format: string, options?: ExtensionO
   cleanupTempFiles();
 
   return getConvertedFilePath(logs.toString('utf8'));
-}
-
-function enableExtension(
-  enabledExtensions: string,
-  extension: string,
-  shouldThrowOnExtensionFail: boolean
-): void {
-  if (enabledExtensions.includes(basename(extension))) {
-    return;
-  }
-
-  try {
-    execSync(`${UNOPKG_OUTPUT_PATH} add --shared ${extension}`);
-  } catch (e) {
-    if (shouldThrowOnExtensionFail) {
-      throw e;
-    }
-  }
 }
