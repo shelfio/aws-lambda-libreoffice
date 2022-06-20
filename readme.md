@@ -85,8 +85,8 @@ execSync(
 
 ## Test
 
-Smoke test that it works: `./test.sh`.
-Make sure to clone [libreoffice-lambda-layer](https://github.com/shelfio/libreoffice-lambda-layer) repo alongside
+Beside unit tests that could be run via `yarn test`, there are integration tests.
+Smoke test that it works: `./test/test.sh`.
 
 ## Publish
 
