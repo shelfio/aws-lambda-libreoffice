@@ -1,10 +1,6 @@
 # aws-lambda-libreoffice ![](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
 
-> 85 MB LibreOffice to fit inside AWS Lambda compressed with Brotli
-
-Inspired by [chrome-aws-lambda](https://github.com/alixaxel/chrome-aws-lambda)
-
-:information_source: Compiled LibreOffice version: 6.4.0.1
+> Helper package to work with LibreOffice in AWS Lambda
 
 ## Install
 
@@ -12,10 +8,19 @@ Inspired by [chrome-aws-lambda](https://github.com/alixaxel/chrome-aws-lambda)
 $ yarn add @shelf/aws-lambda-libreoffice
 ```
 
+## Usage (For version 4.x; based on a Lambda Docker Image)
+
+First, you need to create a Docker image for your Lambda function. See the example at [libreoffice-lambda-base-image](https://github.com/shelfio/libreoffice-lambda-base-image) repo.
+
+Given you have packaged your Lambda function as a Docker image, you can now use this package:
+
+```javascript
+```
+
+## Usage (For version 3.x; based on a Lambda Layer)
+
 **NOTE:** Since version 2.0.0 npm package no longer ships the 85 MB LibreOffice but relies upon [libreoffice-lambda-layer](https://github.com/shelfio/libreoffice-lambda-layer) instead.
 Follow the instructions on how to add a lambda layer in [that repo](https://github.com/shelfio/libreoffice-lambda-layer).
-
-## Usage
 
 ```js
 const {convertTo, canBeConvertedToPDF} = require('@shelf/aws-lambda-libreoffice');
@@ -54,13 +59,14 @@ execSync(
 
 ## See Also
 
-- [libreoffice-lambda-layer](https://github.com/shelfio/libreoffice-lambda-layer)
-- [serverless-libreoffice](https://github.com/vladgolubev/serverless-libreoffice)
+- [libreoffice-lambda-base-image](https://github.com/shelfio/libreoffice-lambda-base-image) - a base Docker image for you Lambdas
+- [libreoffice-lambda-layer](https://github.com/shelfio/libreoffice-lambda-layer) - deprecated, not updated anymore, used the Docker image above
+- [serverless-libreoffice](https://github.com/vladgolubev/serverless-libreoffice) - original implementation
 - [aws-lambda-tesseract](https://github.com/shelfio/aws-lambda-tesseract)
 - [aws-lambda-brotli-unpacker](https://github.com/shelfio/aws-lambda-brotli-unpacker)
 - [chrome-aws-lambda](https://github.com/alixaxel/chrome-aws-lambda)
 
-### Test
+## Test
 
 Smoke test that it works: `./test.sh`.
 Make sure to clone [libreoffice-lambda-layer](https://github.com/shelfio/libreoffice-lambda-layer) repo alongside
