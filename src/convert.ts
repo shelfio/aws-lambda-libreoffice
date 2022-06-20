@@ -1,7 +1,7 @@
 import {execSync} from 'child_process';
 import {cleanupTempFiles} from './cleanup';
 import {getConvertedFilePath} from './logs';
-import {enableExtension} from './extensions';
+import {enableAllExtensions} from './extensions';
 
 export const defaultArgs = [
   '--headless',
@@ -15,7 +15,6 @@ export const defaultArgs = [
 ];
 
 const LO_BINARY_PATH = 'libreoffice7.3';
-const UNOPKG_OUTPUT_PATH = '/opt/libreoffice7.3/program/unopkg.bin';
 
 type ExtensionOptions = {
   extensions: string[];
@@ -30,22 +29,18 @@ type ExtensionOptions = {
  * @return {Promise<String>} Absolute path to the converted file
  */
 export function convertTo(filename: string, format: string, options?: ExtensionOptions): string {
-  let logs;
   cleanupTempFiles();
 
   if (options?.extensions?.length) {
-    const {extensions, shouldThrowOnExtensionFail = true} = options;
-    const enabledExtensions = execSync(`${UNOPKG_OUTPUT_PATH} list --shared`).toString();
-
-    extensions.forEach(extension => {
-      enableExtension(enabledExtensions, extension, shouldThrowOnExtensionFail);
-    });
+    enableAllExtensions(options.extensions, options.shouldThrowOnExtensionFail);
   }
 
   const argumentsString = defaultArgs.join(' ');
   const outputFilename = filename.split(/\\ /).join(' ');
 
   const cmd = `cd /tmp && ${LO_BINARY_PATH} ${argumentsString} --convert-to ${format} --outdir /tmp /tmp/${outputFilename}`;
+
+  let logs;
 
   // due to an unknown issue, we need to run command twice
   try {
@@ -57,5 +52,5 @@ export function convertTo(filename: string, format: string, options?: ExtensionO
   execSync(`rm /tmp/${outputFilename}`);
   cleanupTempFiles();
 
-  return getConvertedFilePath(logs.toString('utf8'));
+  return getConvertedFilePath(logs.toString());
 }

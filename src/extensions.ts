@@ -3,7 +3,15 @@ import {execSync} from 'child_process';
 
 const UNOPKG_OUTPUT_PATH = '/opt/libreoffice7.3/program/unopkg.bin';
 
-export function enableExtension(
+export function enableAllExtensions(extensions: string[], shouldThrowOnExtensionFail = true): void {
+  const enabledExtensions = execSync(`${UNOPKG_OUTPUT_PATH} list --shared`).toString();
+
+  extensions.forEach(extension => {
+    enableExtension(enabledExtensions, extension, shouldThrowOnExtensionFail);
+  });
+}
+
+function enableExtension(
   enabledExtensions: string,
   extension: string,
   shouldThrowOnExtensionFail: boolean
