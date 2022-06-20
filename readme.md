@@ -14,6 +14,18 @@ This version requires Node 16.x or higher.
 
 First, you need to create a Docker image for your Lambda function. See the example at [libreoffice-lambda-base-image](https://github.com/shelfio/libreoffice-lambda-base-image) repo.
 
+Example:
+
+```Dockerfile
+FROM public.ecr.aws/shelf/lambda-libreoffice-base:7.3-node16-x86_64
+
+COPY ./ ${LAMBDA_TASK_ROOT}/
+
+RUN yarn install
+
+CMD [ "handler.handler" ]
+```
+
 Given you have packaged your Lambda function as a Docker image, you can now use this package:
 
 ```javascript
