@@ -8,11 +8,18 @@
 $ yarn add @shelf/aws-lambda-libreoffice
 ```
 
-## Usage (For version 4.x; based on a Lambda Docker Image)
+## Features
 
-This version requires Node 16.x or higher. It also includes CJK fonts bundled.
+- Includes CJK and X11 fonts bundled in the [base Docker image](https://github.com/shelfio/libreoffice-lambda-base-image)!
+- Relies on the latest LibreOffice 7.3 version which is not stripped down from features as a previous layer-based version of this package
+- Requires node.js 16x runtime (x86_64)
 
-First, you need to create a Docker image for your Lambda function. See the example at [libreoffice-lambda-base-image](https://github.com/shelfio/libreoffice-lambda-base-image) repo.
+## Requirements
+
+### Lambda Docker Image
+
+First, you need to create a Docker image for your Lambda function.
+See the example at [libreoffice-lambda-base-image](https://github.com/shelfio/libreoffice-lambda-base-image) repo.
 
 Example:
 
@@ -26,6 +33,14 @@ RUN yarn install
 CMD [ "handler.handler" ]
 ```
 
+### Lambda Configuration
+
+- At least 3008 MB of RAM is recommended
+- At least 45 seconds of Lambda timeout is necessary
+- For larger files support, you can [extend Lambda's /tmp space](https://aws.amazon.com/blogs/aws/aws-lambda-now-supports-up-to-10-gb-ephemeral-storage/) using the `ephemeral-storage` parameter
+
+## Usage (For version 4.x; based on a Lambda Docker Image)
+
 Given you have packaged your Lambda function as a Docker image, you can now use this package:
 
 ```javascript
@@ -35,6 +50,7 @@ module.exports.handler = async () => {
   // assuming there is a document.docx file inside /tmp dir
   // original file will be deleted afterwards
 
+  // it is optional to invoke this function, you can skip it if you're sure about file format
   if (!canBeConvertedToPDF('document.docx')) {
     return false;
   }
@@ -82,9 +98,9 @@ execSync(
 
 ## Troubleshooting
 
-- Please allocate at least **1536 MB** of RAM for your Lambda function.
-- It works only in Amazon Linux 2, so it won't work locally on Linux or macOS. However, you could run it in Docker using `lambci/lambda:nodejs12.x` image
+- Please allocate at least **3008 MB** of RAM for your Lambda function.
 - If some file fails to be converted to PDF, try converting it to PDF on your computer first. This might be an issue with LibreOffice itself
+  - If you want to include some fonts/plugins to the libreoffice, contribute to the [libreoffice-lambda-base-image](https://github.com/shelfio/libreoffice-lambda-base-image) instead
 
 ## See Also
 
