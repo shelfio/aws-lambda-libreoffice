@@ -38,6 +38,7 @@ CMD [ "handler.handler" ]
 - At least 3008 MB of RAM is recommended
 - At least 45 seconds of Lambda timeout is necessary
 - For larger files support, you can [extend Lambda's /tmp space](https://aws.amazon.com/blogs/aws/aws-lambda-now-supports-up-to-10-gb-ephemeral-storage/) using the `ephemeral-storage` parameter
+- Set environment variable `HOME` to `/tmp`
 
 ## Usage (For version 4.x; based on a Lambda Docker Image)
 
