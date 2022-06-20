@@ -1,6 +1,6 @@
 # aws-lambda-libreoffice ![](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
 
-> Helper package to work with LibreOffice in AWS Lambda
+> Utility to work with Docker version of LibreOffice in Lambda
 
 ## Install
 

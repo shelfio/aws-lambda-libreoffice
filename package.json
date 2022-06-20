@@ -1,7 +1,7 @@
 {
   "name": "@shelf/aws-lambda-libreoffice",
   "version": "4.0.2",
-  "description": "92 MB LibreOffice to fit inside AWS Lambda compressed with Brotli",
+  "description": "Utility to work with Docker version of LibreOffice in Lambda",
   "keywords": [
     "aws lambda",
     "libreoffice",
