@@ -32,11 +32,6 @@
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{html,json,md,yml}": [
       "prettier --write"
@@ -67,7 +62,7 @@
     "@types/node": "12",
     "babel-jest": "26.2.2",
     "eslint": "7.6.0",
-    "husky": "4.2.5",
+    "husky": "8.0.1",
     "jest": "26.2.2",
     "lint-staged": "10.2.11",
     "prettier": "2.0.5",

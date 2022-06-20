@@ -24,3 +24,4 @@ yarn.lock
 .idea/$CACHE_FILE$
 .idea/$PRODUCT_WORKSPACE_FILE$
 .idea/.gitignore
+!.husky/_/husky.sh
