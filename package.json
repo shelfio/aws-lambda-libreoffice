@@ -43,6 +43,9 @@
       ".husky/validate-circleci-config.sh"
     ]
   },
+  "babel": {
+    "extends": "@shelf/babel-config/backend"
+  },
   "prettier": "@shelf/prettier-config",
   "jest": {
     "testEnvironment": "node"
@@ -53,9 +56,6 @@
     "is-image": "3.0.0",
     "is-video": "1.0.1"
   },
-  "babel": {
-    "extends": "@shelf/babel-config/backend"
-  },
   "devDependencies": {
     "@babel/cli": "7.17.10",
     "@babel/core": "7.18.5",
@@ -65,7 +65,7 @@
     "@types/jest": "28.1.2",
     "@types/node": "16",
     "babel-jest": "28.1.1",
-    "eslint": "8.18.0",
+    "eslint": "8.19.0",
     "husky": "8.0.1",
     "jest": "28.1.1",
     "lint-staged": "13.0.2",
