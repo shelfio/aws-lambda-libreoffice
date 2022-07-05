@@ -43,6 +43,9 @@
       ".husky/validate-circleci-config.sh"
     ]
   },
+  "babel": {
+    "extends": "@shelf/babel-config/backend"
+  },
   "prettier": "@shelf/prettier-config",
   "jest": {
     "testEnvironment": "node"
@@ -52,9 +55,6 @@
     "del": "5.1.0",
     "is-image": "3.0.0",
     "is-video": "1.0.1"
-  },
-  "babel": {
-    "extends": "@shelf/babel-config/backend"
   },
   "devDependencies": {
     "@babel/cli": "7.17.10",
