@@ -57,8 +57,8 @@
     "is-video": "1.0.1"
   },
   "devDependencies": {
-    "@babel/cli": "7.18.9",
-    "@babel/core": "7.18.9",
+    "@babel/cli": "7.18.10",
+    "@babel/core": "7.18.10",
     "@shelf/babel-config": "1.0.2",
     "@shelf/eslint-config": "2.21.0",
     "@shelf/prettier-config": "1.0.0",
