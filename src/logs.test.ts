@@ -6,4 +6,14 @@ describe('getConvertedFilePath', () => {
 
     expect(getConvertedFilePath(logsString)).toEqual('/tmp/test.docx');
   });
+
+  it('should throw extended error message when passed incorrect format string', () => {
+    const logsString = 'log string that produces error';
+
+    expect(() => getConvertedFilePath(logsString)).toThrow(
+      new TypeError(
+        `TypeError: Cannot read properties of null (reading '1');\tTried to parse string: "log string that produces error"`
+      )
+    );
+  });
 });
