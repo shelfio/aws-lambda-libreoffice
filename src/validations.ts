@@ -2,7 +2,7 @@ import isAudio from '@shelf/is-audio-filepath';
 import isVideo from 'is-video';
 import isImage from 'is-image';
 
-const UNSUPPORTED_FILE_EXTENSIONS = ['.chm', '.heic', '.gdoc', '.gsheet', '.gslides'];
+const UNSUPPORTED_FILE_EXTENSIONS = ['.chm', '.heic', '.gdoc', '.gsheet', '.gslides', '.zip'];
 
 export function canBeConvertedToPDF(filename: string): boolean {
   filename = filename.toLowerCase();
