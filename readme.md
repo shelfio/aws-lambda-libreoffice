@@ -11,7 +11,7 @@ $ yarn add @shelf/aws-lambda-libreoffice
 ## Features
 
 - Includes CJK and X11 fonts bundled in the [base Docker image](https://github.com/shelfio/libreoffice-lambda-base-image)!
-- Relies on the latest LibreOffice 7.3 version which is not stripped down from features as a previous layer-based version of this package
+- Relies on the latest LibreOffice 7.4 version which is not stripped down from features as a previous layer-based version of this package
 - Requires node.js 16x runtime (x86_64)
 
 ## Requirements
@@ -24,7 +24,7 @@ See the example at [libreoffice-lambda-base-image](https://github.com/shelfio/li
 Example:
 
 ```Dockerfile
-FROM public.ecr.aws/shelf/lambda-libreoffice-base:7.3-node16-x86_64
+FROM public.ecr.aws/shelf/lambda-libreoffice-base:7.4-node16-x86_64
 
 COPY ./ ${LAMBDA_TASK_ROOT}/
 
