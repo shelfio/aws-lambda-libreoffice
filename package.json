@@ -60,7 +60,7 @@
     "@babel/cli": "7.19.3",
     "@babel/core": "7.19.6",
     "@shelf/babel-config": "1.2.0",
-    "@shelf/eslint-config": "2.22.1",
+    "@shelf/eslint-config": "2.22.3",
     "@shelf/prettier-config": "1.0.0",
     "@types/jest": "29.1.2",
     "@types/node": "16",
