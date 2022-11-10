@@ -115,7 +115,17 @@ execSync(
 ## Test
 
 Beside unit tests that could be run via `yarn test`, there are integration tests.
-Smoke test that it works: `./test/test.sh`.
+
+Smoke test that it works:
+
+```sh
+cd test
+./test.sh
+
+# copy converted PDF file from container to the host to see if it's ok
+export CID=$(cat ./cid)
+docker cp $CID:/tmp/test.pdf ./test.pdf
+```
 
 ## Publish
 
