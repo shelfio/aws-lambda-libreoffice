@@ -1,6 +1,6 @@
-import isAudio from '@shelf/is-audio-filepath';
 import isVideo from 'is-video';
 import isImage from 'is-image';
+import isAudio from '@shelf/is-audio-filepath';
 
 const UNSUPPORTED_FILE_EXTENSIONS = ['.chm', '.heic', '.gdoc', '.gsheet', '.gslides', '.zip'];
 
