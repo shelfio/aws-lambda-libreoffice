@@ -58,7 +58,7 @@
   },
   "devDependencies": {
     "@babel/cli": "7.20.7",
-    "@babel/core": "7.20.7",
+    "@babel/core": "7.20.12",
     "@shelf/babel-config": "1.2.0",
     "@shelf/eslint-config": "2.26.0",
     "@shelf/prettier-config": "1.0.0",
