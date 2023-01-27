@@ -2062,10 +2062,10 @@
     babel-plugin-transform-vue-jsx "3.7.0"
     babel-plugin-transform-vue-tsx "3510.0.3"
 
-"@shelf/eslint-config@2.27.0":
-  version "2.27.0"
-  resolved "https://registry.yarnpkg.com/@shelf/eslint-config/-/eslint-config-2.27.0.tgz#6d9a3326d505ffca6d6a5307d4e44250ff150e03"
-  integrity sha512-O66/nqJyIn2X7KISgRpsqZDTz1L5ef97wBQicYpJr1jirIVSbW/HmnwTwH473vSKpg8Xj6LeqPDyfrCFNF9G1A==
+"@shelf/eslint-config@2.27.1":
+  version "2.27.1"
+  resolved "https://registry.yarnpkg.com/@shelf/eslint-config/-/eslint-config-2.27.1.tgz#90954aa610626227a758ff6b4ea536b77a925ad6"
+  integrity sha512-6r+LK5XNwfiXlaic+bnTzOYpzwGG/NxV1Imnyas2u3ztu97STtSjhkpSR8f3HbU5GvTpKy/Khxw1dMuYgcC3Kw==
   dependencies:
     "@babel/eslint-parser" "7.19.1"
     "@typescript-eslint/eslint-plugin" "5.48.0"
