@@ -19,7 +19,7 @@ export function convertTo(filename: string, format: string): string {
   const argumentsString = DEFAULT_ARGS.join(' ');
   const outputFilename = filename.split(/\\ /).join(' ');
 
-  const cmd = `cd /tmp && ${LO_BINARY_PATH} ${argumentsString} --convert-to ${format} --outdir /tmp /tmp/${outputFilename}`;
+  const cmd = `cd /tmp && ${LO_BINARY_PATH} ${argumentsString} --convert-to ${format} --outdir /tmp '/tmp/${outputFilename}'`;
 
   let logs;
 
@@ -30,7 +30,7 @@ export function convertTo(filename: string, format: string): string {
     logs = execSync(cmd);
   }
 
-  execSync(`rm /tmp/${outputFilename}`);
+  execSync(`rm '/tmp/${outputFilename}'`);
   cleanupTempFiles();
 
   return getConvertedFilePath(logs.toString());
