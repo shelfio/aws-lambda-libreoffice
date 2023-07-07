@@ -1,6 +1,9 @@
-import {execSync} from 'child_process';
+import childProcess from 'child_process';
+import util from 'util';
 import {cleanupTempFiles} from './cleanup';
 import {getConvertedFilePath} from './logs';
+
+const exec = util.promisify(childProcess.exec);
 
 export const DEFAULT_ARGS = [
   '--headless',
@@ -13,8 +16,8 @@ export const DEFAULT_ARGS = [
 ];
 const LO_BINARY_PATH = 'libreoffice7.4';
 
-export function convertTo(filename: string, format: string): string {
-  cleanupTempFiles();
+export async function convertTo(filename: string, format: string): Promise<string> {
+  await cleanupTempFiles();
 
   const argumentsString = DEFAULT_ARGS.join(' ');
   const outputFilename = filename.split(/\\ /).join(' ');
@@ -25,13 +28,13 @@ export function convertTo(filename: string, format: string): string {
 
   // due to an unknown issue, we need to run command twice
   try {
-    logs = execSync(cmd);
+    logs = (await exec(cmd)).stdout;
   } catch (e) {
-    logs = execSync(cmd);
+    logs = (await exec(cmd)).stdout;
   }
 
-  execSync(`rm '/tmp/${outputFilename}'`);
-  cleanupTempFiles();
+  await exec(`rm '/tmp/${outputFilename}'`);
+  await cleanupTempFiles();
 
   return getConvertedFilePath(logs.toString());
 }
