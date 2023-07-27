@@ -4815,10 +4815,10 @@ is-glob@^4.0.0, is-glob@^4.0.1, is-glob@^4.0.3, is-glob@~4.0.1:
   dependencies:
     is-extglob "^2.1.1"
 
-is-image@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/is-image/-/is-image-3.1.0.tgz#d8e5e8370474297cba8ad259ec6f213ed506133e"
-  integrity sha512-0sJQkCqLMZzyYl3XNYKjGnZDoZQ7dNOjKh9eFeS5OEu4y8UDPaI9szML8sB1pBVpqfYt/wmRy6e7TwZHkT0KIg==
+is-image@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/is-image/-/is-image-4.0.0.tgz#3caa93ce42406e8bc631e74aa9ca6764ea2f3e70"
+  integrity sha512-GaEydOss69aTWNUH0EczOLH7WhNeEjf61fqU4pxUZE7+s86T2X3tEtolOkQ8mI5esdsNHl68ogD9h4cUWSSMog==
 
 is-negative-zero@^2.0.2:
   version "2.0.2"

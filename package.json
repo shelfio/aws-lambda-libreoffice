@@ -53,7 +53,7 @@
   "dependencies": {
     "@shelf/is-audio-filepath": "2.0.0",
     "del": "5.1.0",
-    "is-image": "3.1.0",
+    "is-image": "4.0.0",
     "is-video": "1.0.1"
   },
   "devDependencies": {
