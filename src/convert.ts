@@ -14,7 +14,7 @@ export const DEFAULT_ARGS = [
   '--nologo',
   '--norestore',
 ];
-const LO_BINARY_PATH = 'libreoffice7.4';
+const LO_BINARY_PATH = 'libreoffice7.6';
 
 export async function convertTo(filename: string, format: string): Promise<string> {
   await cleanupTempFiles();
