@@ -1,18 +1,24 @@
 import {canBeConvertedToPDF} from './validations';
 
-describe('canBeConvertedToPDF', () => {
-  it.each`
-    filename        | expected
-    ${'image.jpg'}  | ${false}
-    ${'image.mp4'}  | ${false}
-    ${'image.mp3'}  | ${false}
-    ${'image.wav'}  | ${false}
-    ${'image.chm'}  | ${false}
-    ${'image.gdoc'} | ${false}
-    ${'image.dwg'}  | ${false}
-    ${'image.docx'} | ${true}
-    ${'image.pdf'}  | ${true}
-  `('should return $expected for filename $filename', ({filename, expected}) => {
-    expect(canBeConvertedToPDF(filename)).toEqual(expected);
-  });
+it.each`
+  filename
+  ${'image.docx'}
+  ${'image.pdf'}
+`('should return true for supported filename $filename', ({filename}) => {
+  expect(canBeConvertedToPDF(filename)).toEqual(true);
+});
+
+it.each`
+  filename
+  ${'image.mpp'}
+  ${'image.msg'}
+  ${'image.jpg'}
+  ${'image.mp4'}
+  ${'image.mp3'}
+  ${'image.wav'}
+  ${'image.chm'}
+  ${'image.gdoc'}
+  ${'image.dwg'}
+`('should return false for unsupported filename $filename', ({filename}) => {
+  expect(canBeConvertedToPDF(filename)).toEqual(false);
 });
