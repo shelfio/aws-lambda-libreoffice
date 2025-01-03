@@ -10,6 +10,8 @@ const UNSUPPORTED_FILE_EXTENSIONS = [
   '.gslides',
   '.zip',
   '.dwg',
+  '.msg',
+  '.mpp',
 ];
 
 export function canBeConvertedToPDF(filename: string): boolean {
