@@ -1,6 +1,6 @@
 {
   "name": "@shelf/aws-lambda-libreoffice",
-  "version": "7.0.0",
+  "version": "7.1.0",
   "description": "Utility to work with Docker version of LibreOffice in Lambda",
   "keywords": [
     "aws lambda",
@@ -57,20 +57,20 @@
     "is-video": "1.0.1"
   },
   "devDependencies": {
-    "@babel/cli": "7.24.7",
-    "@babel/core": "7.24.7",
+    "@babel/cli": "7.26.4",
+    "@babel/core": "7.26.0",
     "@shelf/babel-config": "2.0.1",
     "@shelf/eslint-config": "2.29.3",
     "@shelf/prettier-config": "1.0.0",
-    "@types/jest": "29.5.12",
+    "@types/jest": "29.5.14",
     "@types/node": "16",
     "babel-jest": "29.7.0",
-    "eslint": "8.55.0",
+    "eslint": "8.57.1",
     "husky": "8.0.3",
     "jest": "29.7.0",
     "lint-staged": "13.3.0",
     "prettier": "2.8.8",
-    "typescript": "5.5.2"
+    "typescript": "5.7.2"
   },
   "engines": {
     "node": ">=16"
