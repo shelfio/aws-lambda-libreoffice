@@ -12,6 +12,7 @@ const UNSUPPORTED_FILE_EXTENSIONS = [
   '.dwg',
   '.msg',
   '.mpp',
+  '.epub',
 ];
 
 export function canBeConvertedToPDF(filename: string): boolean {

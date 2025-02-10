@@ -10,6 +10,7 @@ it.each`
 
 it.each`
   filename
+  ${'book.epub'}
   ${'project.mpp'}
   ${'email.msg'}
   ${'image.jpg'}
