@@ -13,6 +13,7 @@ const UNSUPPORTED_FILE_EXTENSIONS = [
   '.msg',
   '.mpp',
   '.epub',
+  '.xlsx',
 ];
 
 export function canBeConvertedToPDF(filename: string): boolean {
