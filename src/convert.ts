@@ -36,5 +36,20 @@ export async function convertTo(filename: string, format: string): Promise<strin
   await exec(`rm '/tmp/${outputFilename}'`);
   await cleanupTempFiles();
 
-  return getConvertedFilePath(logs.toString());
+  try {
+    const logsString = logs.toString();
+
+    return getConvertedFilePath(logsString);
+  } catch (error) {
+    if (
+      error instanceof Error &&
+      error.message.includes(`Cannot read properties of null (reading '1')`)
+    ) {
+      throw new Error(`Cannot generate PDF preview for .${outputFilename.split('.').pop()} file`, {
+        cause: error,
+      });
+    }
+
+    throw error;
+  }
 }
