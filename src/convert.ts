@@ -28,28 +28,21 @@ export async function convertTo(filename: string, format: string): Promise<strin
 
   // due to an unknown issue, we need to run command twice
   try {
-    logs = (await exec(cmd)).stdout;
+    const {stdout, stderr} = await exec(cmd);
+    logs = stdout || new Error(stderr);
   } catch (e) {
-    logs = (await exec(cmd)).stdout;
+    const {stdout, stderr} = await exec(cmd);
+    logs = stdout || new Error(stderr);
   }
 
   await exec(`rm '/tmp/${outputFilename}'`);
   await cleanupTempFiles();
 
-  try {
-    const logsString = logs.toString();
-
-    return getConvertedFilePath(logsString);
-  } catch (error) {
-    if (
-      error instanceof Error &&
-      error.message.includes(`Cannot read properties of null (reading '1')`)
-    ) {
-      throw new Error(`Cannot generate PDF preview for .${outputFilename.split('.').pop()} file`, {
-        cause: error,
-      });
-    }
-
-    throw error;
+  if (logs instanceof Error) {
+    throw new Error(`Cannot generate PDF preview for .${outputFilename.split('.').pop()} file`, {
+      cause: logs,
+    });
   }
+
+  return getConvertedFilePath(logs.toString());
 }
