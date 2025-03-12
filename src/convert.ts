@@ -1,5 +1,6 @@
 import childProcess from 'child_process';
 import util from 'util';
+import path from 'node:path';
 import {cleanupTempFiles} from './cleanup';
 import {getConvertedFilePath} from './logs';
 
@@ -25,16 +26,27 @@ export async function convertTo(filename: string, format: string): Promise<strin
   const cmd = `cd /tmp && ${LO_BINARY_PATH} ${argumentsString} --convert-to ${format} --outdir /tmp '/tmp/${outputFilename}'`;
 
   let logs;
+  let err;
 
   // due to an unknown issue, we need to run command twice
   try {
-    logs = (await exec(cmd)).stdout;
+    const {stdout, stderr} = await exec(cmd);
+    logs = stdout;
+    err = stderr;
   } catch (e) {
-    logs = (await exec(cmd)).stdout;
+    const {stdout, stderr} = await exec(cmd);
+    logs = stdout;
+    err = stderr;
+  } finally {
+    await exec(`rm '/tmp/${outputFilename}'`);
+    await cleanupTempFiles();
   }
 
-  await exec(`rm '/tmp/${outputFilename}'`);
-  await cleanupTempFiles();
+  if (err) {
+    throw new Error(`Cannot generate PDF preview for .${path.extname(outputFilename)} file`, {
+      cause: logs,
+    });
+  }
 
   return getConvertedFilePath(logs.toString());
 }
