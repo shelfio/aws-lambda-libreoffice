@@ -327,14 +327,6 @@
     "@babel/template" "^7.20.7"
     "@babel/types" "^7.21.0"
 
-"@babel/helper-function-name@^7.24.7":
-  version "7.24.7"
-  resolved "https://registry.yarnpkg.com/@babel/helper-function-name/-/helper-function-name-7.24.7.tgz#75f1e1725742f39ac6584ee0b16d94513da38dd2"
-  integrity sha512-FyoJTsj/PEUWu1/TYRiXTIHc8lbw+TDYkZuoE43opPS5TrI7MyONBE1oNvfguEXAD9yhQRrVBnXdXzSLQl9XnA==
-  dependencies:
-    "@babel/template" "^7.24.7"
-    "@babel/types" "^7.24.7"
-
 "@babel/helper-hoist-variables@^7.18.6":
   version "7.18.6"
   resolved "https://registry.yarnpkg.com/@babel/helper-hoist-variables/-/helper-hoist-variables-7.18.6.tgz#d4d2c8fb4baeaa5c68b99cc8245c56554f926678"
@@ -2196,10 +2188,10 @@
     eslint-plugin-vue "9.8.0"
     eslint-plugin-you-dont-need-lodash-underscore "6.12.0"
 
-"@shelf/is-audio-filepath@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@shelf/is-audio-filepath/-/is-audio-filepath-2.0.0.tgz#f2102b7a0fa9377c3e565d13baebd783be03c693"
-  integrity sha512-HnLKU89jabLShX3TaVMlRGR/XPE+AJOwodgs0AHXAzZ3/0afAbWeK78Ita5ebiCXT5HPM5zsc9usEB0DJQt3BQ==
+"@shelf/is-audio-filepath@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@shelf/is-audio-filepath/-/is-audio-filepath-3.0.1.tgz#075c90cd6ffa72e34ca15abb824a1e39b8885c81"
+  integrity sha512-YIeUblc+GVt72xihz34LqhFql/YCFJtyXnuUPjlEyoCYjD0TjDA0A2AZH420WT5RMWgYPGhTxyHopq6ISEQDkQ==
 
 "@shelf/prettier-config@1.0.0":
   version "1.0.0"
