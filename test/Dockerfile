@@ -1,4 +1,4 @@
-FROM public.ecr.aws/shelf/lambda-libreoffice-base:7.6-node18-x86_64
+FROM public.ecr.aws/shelf/lambda-libreoffice-base:7.6-node20-x86_64
 
-COPY . ${LAMBDA_TASK_ROOT}/
+COPY test-bundled.js ${LAMBDA_TASK_ROOT}/test.js
 CMD [ "test.handler" ]

@@ -15,8 +15,15 @@
     "email": "vlad@shelf.io",
     "url": "https://shelf.io"
   },
-  "main": "lib",
+  "type": "module",
+  "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "types": "./lib/index.d.ts"
+    }
+  },
   "files": [
     "lib"
   ],
@@ -40,9 +47,9 @@
   },
   "prettier": "@shelf/prettier-config",
   "dependencies": {
-    "@shelf/is-audio-filepath": "2.0.0",
-    "del": "6.0.0",
-    "is-image": "3.1.0",
+    "@shelf/is-audio-filepath": "3.0.1",
+    "del": "8.0.0",
+    "is-image": "4.0.0",
     "is-video": "2.0.0"
   },
   "devDependencies": {
@@ -52,10 +59,11 @@
     "@swc/jest": "0.2.39",
     "@types/jest": "30.0.0",
     "@types/node": "^24.2.1",
+    "esbuild": "0.25.9",
     "eslint": "9.33.0",
-    "husky": "8.0.3",
+    "husky": "9.1.7",
     "jest": "30.0.5",
-    "lint-staged": "13.3.0",
+    "lint-staged": "16.1.5",
     "prettier": "3.6.2",
     "typescript": "5.9.2"
   },

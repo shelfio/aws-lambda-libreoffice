@@ -1,8 +1,8 @@
 import childProcess from 'child_process';
 import util from 'util';
 import path from 'node:path';
-import {cleanupTempFiles} from './cleanup';
-import {getConvertedFilePath} from './logs';
+import {cleanupTempFiles} from './cleanup.js';
+import {getConvertedFilePath} from './logs.js';
 
 const exec = util.promisify(childProcess.exec);
 

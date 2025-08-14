@@ -1,5 +1,5 @@
 import {writeFileSync} from 'fs';
-import {convertTo} from './lib';
+import {convertTo} from './lib/index.js';
 
 export const handler = async () => {
   writeFileSync('/tmp/test.txt', Buffer.from('Hello World!'));
