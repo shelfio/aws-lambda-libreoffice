@@ -54,7 +54,7 @@
     "@shelf/is-audio-filepath": "2.0.0",
     "del": "6.0.0",
     "is-image": "3.1.0",
-    "is-video": "1.0.1"
+    "is-video": "2.0.0"
   },
   "devDependencies": {
     "@babel/cli": "7.27.0",

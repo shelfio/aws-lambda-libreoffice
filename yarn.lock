@@ -4799,12 +4799,12 @@ is-typed-array@^1.1.10, is-typed-array@^1.1.9:
     gopd "^1.0.1"
     has-tostringtag "^1.0.0"
 
-is-video@1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/is-video/-/is-video-1.0.1.tgz#7bc67760b0103d402bc1f10bb542f16a3687773b"
-  integrity sha1-e8Z3YLAQPUArwfELtULxajaHdzs=
+is-video@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/is-video/-/is-video-2.0.0.tgz#af16a82bcda4b1a8cd3bd547338d5a525a6c2c80"
+  integrity sha512-xLiwqfgYQnOXKS1grxbczTr6648nfZWwFtrtBFP8HKTQFaxZ28iO4xCklAm7IJfW1Ns7duhPSxaYgyv8/chV0A==
   dependencies:
-    video-extensions "^1.0.0"
+    video-extensions "^1.2.0"
 
 is-weakref@^1.0.2:
   version "1.0.2"
@@ -6872,10 +6872,10 @@ v8-to-istanbul@^9.0.1:
     "@types/istanbul-lib-coverage" "^2.0.1"
     convert-source-map "^1.6.0"
 
-video-extensions@^1.0.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/video-extensions/-/video-extensions-1.1.0.tgz#eaa86b45f29a853c2b873e9d8e23b513712997d6"
-  integrity sha1-6qhrRfKahTwrhz6djiO1E3Epl9Y=
+video-extensions@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/video-extensions/-/video-extensions-1.2.0.tgz#62f449f403b853f02da40964cbf34143f7d96731"
+  integrity sha512-TriMl18BHEsh2KuuSA065tbu4SNAC9fge7k8uKoTTofTq89+Xsg4K1BGbmSVETwUZhqSjd9KwRCNwXAW/buXMg==
 
 vue-eslint-parser@^9.0.1:
   version "9.0.3"
