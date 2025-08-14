@@ -123,8 +123,8 @@ The test setup includes:
 
 ```sh
 $ git checkout master
-$ pnpm version
-$ pnpm publish
+$ yarn version
+$ yarn publish
 $ git push origin master --tags
 ```
 
