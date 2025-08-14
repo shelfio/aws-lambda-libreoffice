@@ -8,8 +8,7 @@ export async function cleanupTempFiles(): Promise<void> {
     if (file.endsWith('.tmp') === true || file.startsWith('OSL_PIPE')) {
       try {
         await del([`/tmp/${file}`, `/tmp/${file}/*`], {force: true});
-        // eslint-disable-next-line no-empty
-      } catch (error) {}
+      } catch {}
     }
   }
 }

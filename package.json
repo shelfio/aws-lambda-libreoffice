@@ -23,8 +23,8 @@
   "scripts": {
     "build": "rm -rf lib/ && tsc",
     "coverage": "jest --coverage",
-    "lint": "eslint . --ext .js,.ts,.json --fix",
-    "lint:ci": "eslint . --ext .js,.ts,.json",
+    "lint": "eslint . --fix",
+    "lint:ci": "eslint .",
     "prepack": "pnpm build",
     "test": "jest src",
     "type-check": "tsc --noEmit",
@@ -46,17 +46,17 @@
     "is-video": "2.0.0"
   },
   "devDependencies": {
-    "@shelf/eslint-config": "2.29.3",
+    "@shelf/eslint-config": "5.2.3",
     "@shelf/prettier-config": "1.0.0",
     "@shelf/tsconfig": "0.1.0",
     "@swc/jest": "0.2.39",
     "@types/jest": "30.0.0",
     "@types/node": "^24.2.1",
-    "eslint": "8.57.1",
+    "eslint": "9.33.0",
     "husky": "8.0.3",
     "jest": "30.0.5",
     "lint-staged": "13.3.0",
-    "prettier": "2.8.8",
+    "prettier": "3.6.2",
     "typescript": "5.9.2"
   },
   "engines": {

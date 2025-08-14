@@ -5,9 +5,7 @@ const config = {
   transform: {
     '^.+\\.(t|j)sx?$': '@swc/jest',
   },
-  transformIgnorePatterns: [
-    'node_modules/(?!(is-video|@shelf/is-audio-filepath)/)'
-  ],
+  transformIgnorePatterns: ['node_modules/(?!(is-video|@shelf/is-audio-filepath)/)'],
   resetMocks: true,
   coverageThreshold: {
     global: {

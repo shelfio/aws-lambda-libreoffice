@@ -33,7 +33,7 @@ export async function convertTo(filename: string, format: string): Promise<strin
     const {stdout, stderr} = await exec(cmd);
     logs = stdout;
     err = stderr;
-  } catch (e) {
+  } catch {
     const {stdout, stderr} = await exec(cmd);
     logs = stdout;
     err = stderr;
