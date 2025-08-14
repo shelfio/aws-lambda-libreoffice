@@ -5,14 +5,15 @@
 ## Install
 
 ```
-$ yarn add @shelf/aws-lambda-libreoffice
+$ pnpm add @shelf/aws-lambda-libreoffice
 ```
 
 ## Features
 
+- **ESM Module Support**: Native ESM package with full TypeScript support
 - Includes CJK and X11 fonts bundled in the [base Docker image](https://github.com/shelfio/libreoffice-lambda-base-image)!
-- Relies on the latest LibreOffice 7.4 version which is not stripped down from features as a previous layer-based version of this package
-- Requires node.js 16x runtime (x86_64)
+- Relies on the latest LibreOffice 7.6 version which is not stripped down from features
+- Requires Node.js 22 or higher (x86_64)
 
 ## Requirements
 
@@ -24,11 +25,11 @@ See the example at [libreoffice-lambda-base-image](https://github.com/shelfio/li
 Example:
 
 ```Dockerfile
-FROM public.ecr.aws/shelf/lambda-libreoffice-base:7.6-node18-x86_64
+FROM public.ecr.aws/shelf/lambda-libreoffice-base:7.6-node20-x86_64
 
 COPY ./ ${LAMBDA_TASK_ROOT}/
 
-RUN yarn install
+RUN pnpm install
 
 CMD [ "handler.handler" ]
 ```
@@ -40,14 +41,16 @@ CMD [ "handler.handler" ]
 - For larger files support, you can [extend Lambda's /tmp space](https://aws.amazon.com/blogs/aws/aws-lambda-now-supports-up-to-10-gb-ephemeral-storage/) using the `ephemeral-storage` parameter
 - Set environment variable `HOME` to `/tmp`
 
-## Usage (For version 4.x; based on a Lambda Docker Image)
+## Usage (ESM)
 
-Given you have packaged your Lambda function as a Docker image, you can now use this package:
+This package is now a native ESM module. If you're using CommonJS, you'll need to use dynamic imports or update your project to use ESM.
+
+### ESM Usage (Recommended)
 
 ```javascript
-const {convertTo, canBeConvertedToPDF} = require('@shelf/aws-lambda-libreoffice');
+import {convertTo, canBeConvertedToPDF} from '@shelf/aws-lambda-libreoffice';
 
-module.exports.handler = async () => {
+export const handler = async () => {
   // assuming there is a document.docx file inside /tmp dir
   // original file will be deleted afterwards
 
@@ -60,20 +63,11 @@ module.exports.handler = async () => {
 };
 ```
 
-## Usage (For version 3.x; based on a Lambda Layer)
+### CommonJS Usage (via dynamic import)
 
-This version requires Node 12.x or higher.
-
-**NOTE:** Since version 2.0.0 npm package no longer ships the 85 MB LibreOffice
-but relies upon [libreoffice-lambda-layer](https://github.com/shelfio/libreoffice-lambda-layer) instead.
-Follow the instructions on how to add a lambda layer in [that repo](https://github.com/shelfio/libreoffice-lambda-layer).
-
-```js
-const {convertTo, canBeConvertedToPDF} = require('@shelf/aws-lambda-libreoffice');
-
+```javascript
 module.exports.handler = async () => {
-  // assuming there is a document.docx file inside /tmp dir
-  // original file will be deleted afterwards
+  const {convertTo, canBeConvertedToPDF} = await import('@shelf/aws-lambda-libreoffice');
 
   if (!canBeConvertedToPDF('document.docx')) {
     return false;
@@ -81,20 +75,6 @@ module.exports.handler = async () => {
 
   return convertTo('document.docx', 'pdf'); // returns /tmp/document.pdf
 };
-```
-
-Or if you want more control:
-
-```js
-const {unpack, defaultArgs} = require('@shelf/aws-lambda-libreoffice');
-
-await unpack(); // default path /tmp/instdir/program/soffice.bin
-
-execSync(
-  `/tmp/instdir/program/soffice.bin ${defaultArgs.join(
-    ' '
-  )} --convert-to pdf file.docx --outdir /tmp`
-);
 ```
 
 ## Troubleshooting
@@ -105,8 +85,7 @@ execSync(
 
 ## See Also
 
-- [libreoffice-lambda-base-image](https://github.com/shelfio/libreoffice-lambda-base-image) - a base Docker image for you Lambdas
-- [libreoffice-lambda-layer](https://github.com/shelfio/libreoffice-lambda-layer) - deprecated, not updated anymore, used the Docker image above
+- [libreoffice-lambda-base-image](https://github.com/shelfio/libreoffice-lambda-base-image) - a base Docker image for your Lambdas
 - [serverless-libreoffice](https://github.com/vladgolubev/serverless-libreoffice) - original implementation
 - [aws-lambda-tesseract](https://github.com/shelfio/aws-lambda-tesseract)
 - [aws-lambda-brotli-unpacker](https://github.com/shelfio/aws-lambda-brotli-unpacker)
@@ -114,25 +93,38 @@ execSync(
 
 ## Test
 
-Beside unit tests that could be run via `yarn test`, there are integration tests.
+Beside unit tests that could be run via `pnpm test`, there are integration tests.
 
-Smoke test that it works:
+### Running Tests
 
 ```sh
+# Unit tests
+pnpm test
+
+# Integration test with Docker/Podman
 cd test
 ./test.sh
 
-# copy converted PDF file from container to the host to see if it's ok
-export CID=$(cat ./cid)
-docker cp $CID:/tmp/test.pdf ./test.pdf
+# The test will:
+# 1. Build the ESM code and transpile to CommonJS for Lambda compatibility
+# 2. Process all files in test-data/ directory
+# 3. Generate PDFs in the same test-data/ directory
+# 4. Show conversion summary
 ```
+
+The test setup includes:
+
+- Automatic ESM to CommonJS transpilation using esbuild
+- Batch conversion of multiple file types (DOCX, HTML, etc.)
+- Volume mounting for easy PDF retrieval
+- Sample test files in `test/test-data/`
 
 ## Publish
 
 ```sh
 $ git checkout master
-$ yarn version
-$ yarn publish
+$ pnpm version
+$ pnpm publish
 $ git push origin master --tags
 ```
 
