@@ -15,22 +15,20 @@
     "email": "vlad@shelf.io",
     "url": "https://shelf.io"
   },
+  "main": "lib",
+  "types": "lib/index.d.ts",
   "files": [
     "lib"
   ],
-  "main": "lib",
-  "types": "lib/index.d.ts",
   "scripts": {
-    "build": "rm -rf lib/ && yarn build:types && yarn build:code",
-    "build:code": "babel src --out-dir lib --ignore '**/*.test.ts' --extensions '.ts' && find ./lib -name '*.test.d.ts' -delete",
-    "build:types": "tsc --emitDeclarationOnly --declaration --isolatedModules false --declarationDir lib",
+    "build": "rm -rf lib/ && tsc",
     "coverage": "jest --coverage",
     "lint": "eslint . --ext .js,.ts,.json --fix",
     "lint:ci": "eslint . --ext .js,.ts,.json",
-    "prepack": "yarn build",
+    "prepack": "pnpm build",
     "test": "jest src",
     "type-check": "tsc --noEmit",
-    "type-check:watch": "npm run type-check -- --watch"
+    "type-check:watch": "pnpm run type-check -- --watch"
   },
   "lint-staged": {
     "*.{html,json,md,yml}": [
@@ -38,39 +36,28 @@
     ],
     "*.{js,ts}": [
       "eslint --fix"
-    ],
-    ".circleci/config.yml": [
-      ".husky/validate-circleci-config.sh"
     ]
   },
-  "babel": {
-    "extends": "@shelf/babel-config/backend"
-  },
   "prettier": "@shelf/prettier-config",
-  "jest": {
-    "testEnvironment": "node"
-  },
   "dependencies": {
     "@shelf/is-audio-filepath": "2.0.0",
     "del": "6.0.0",
     "is-image": "3.1.0",
-    "is-video": "1.0.1"
+    "is-video": "2.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.27.0",
-    "@babel/core": "7.26.10",
-    "@shelf/babel-config": "2.0.1",
     "@shelf/eslint-config": "2.29.3",
     "@shelf/prettier-config": "1.0.0",
-    "@types/jest": "29.5.14",
-    "@types/node": "16",
-    "babel-jest": "29.7.0",
+    "@shelf/tsconfig": "0.1.0",
+    "@swc/jest": "0.2.39",
+    "@types/jest": "30.0.0",
+    "@types/node": "^24.2.1",
     "eslint": "8.57.1",
     "husky": "8.0.3",
-    "jest": "29.7.0",
+    "jest": "30.0.5",
     "lint-staged": "13.3.0",
     "prettier": "2.8.8",
-    "typescript": "5.8.3"
+    "typescript": "5.9.2"
   },
   "engines": {
     "node": ">=16"

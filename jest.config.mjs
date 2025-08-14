@@ -1,0 +1,22 @@
+/**
+ * @type {import('jest').Config}
+ */
+const config = {
+  transform: {
+    '^.+\\.(t|j)sx?$': '@swc/jest',
+  },
+  transformIgnorePatterns: [
+    'node_modules/(?!(is-video|@shelf/is-audio-filepath)/)'
+  ],
+  resetMocks: true,
+  coverageThreshold: {
+    global: {
+      branches: 100,
+      functions: 100,
+      lines: 100,
+      statements: 100,
+    },
+  },
+};
+
+export default config;

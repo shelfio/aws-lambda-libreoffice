@@ -29,3 +29,5 @@ yarn.lock
 ./test/cid
 ./test/lib
 ./test/node_modules
+
+.DS_Store
