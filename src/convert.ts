@@ -42,11 +42,14 @@ export async function convertTo(filename: string, format: string): Promise<strin
     await cleanupTempFiles();
   }
 
-  if (err) {
+  // Check if conversion was successful by looking for the output pattern in logs
+  const logsStr = logs.toString();
+
+  if (!logsStr.includes('->')) {
     throw new Error(`Cannot generate PDF preview for .${path.extname(outputFilename)} file`, {
-      cause: logs,
+      cause: err || logs,
     });
   }
 
-  return getConvertedFilePath(logs.toString());
+  return getConvertedFilePath(logsStr);
 }
