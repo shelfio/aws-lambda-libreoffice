@@ -47,7 +47,7 @@ export async function convertTo(filename: string, format: string): Promise<strin
 
   if (!logsStr.includes('->')) {
     throw new Error(`Cannot generate PDF preview for .${path.extname(outputFilename)} file`, {
-      cause: err || logs,
+      cause: `Error:${err.toString()}\nLogs: ${logsStr}`,
     });
   }
 
