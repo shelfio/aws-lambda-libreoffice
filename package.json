@@ -15,15 +15,11 @@
     "email": "vlad@shelf.io",
     "url": "https://shelf.io"
   },
+  "sideEffects": true,
   "type": "module",
-  "main": "lib/index.js",
+  "exports": "./lib/index.js",
+  "module": "./lib/index.js",
   "types": "lib/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./lib/index.js",
-      "types": "./lib/index.d.ts"
-    }
-  },
   "files": [
     "lib"
   ],
