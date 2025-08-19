@@ -1,0 +1,12 @@
+{
+
+  "dependencies": {
+    "@shelf/aws-lambda-libreoffice": "8.0.2"
+  },
+  "devDependencies": {
+    "typescript": "5.9.2"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
