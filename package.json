@@ -1,6 +1,6 @@
 {
   "name": "@shelf/aws-lambda-libreoffice",
-  "version": "8.0.0",
+  "version": "8.0.4",
   "description": "Utility to work with Docker version of LibreOffice in Lambda",
   "keywords": [
     "aws lambda",
@@ -15,15 +15,11 @@
     "email": "vlad@shelf.io",
     "url": "https://shelf.io"
   },
+  "sideEffects": true,
   "type": "module",
-  "main": "lib/index.js",
+  "exports": "./lib/index.js",
+  "module": "./lib/index.js",
   "types": "lib/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./lib/index.js",
-      "types": "./lib/index.d.ts"
-    }
-  },
   "files": [
     "lib"
   ],
