@@ -93,31 +93,32 @@ module.exports.handler = async () => {
 
 ## Test
 
-Beside unit tests that could be run via `pnpm test`, there are integration tests.
+The repository now ships two Jest suites and a standalone Lambda harness.
 
-### Running Tests
+### Jest suites
+
+- `pnpm test:unit` (or `pnpm test`) – runs unit tests in `tests/unit`
+- `pnpm test:integration` – spins up the Lambda container through Jest; automatically skips if Podman or the base image is unavailable
+- `pnpm test:e2e` – alias for the current integration suite
+
+### Lambda harness
+
+Use `pnpm test:lambda` to exercise the runtime end-to-end. The script bundles the handler, builds a disposable image on top of `libreoffice-lambda-base:local`, starts the Lambda runtime with Podman, invokes it once, and streams the conversion summary plus the temp output directory.
+
+Requirements:
+
+- `podman` installed locally
+- A base image tagged `libreoffice-lambda-base:local` (override with `LIBREOFFICE_LAMBDA_BASE_IMAGE`)
+- `pnpm build` completed beforehand (generates `lib/index.js` consumed by the bundler)
+
+Handy workflow:
 
 ```sh
-# Unit tests
-pnpm test
-
-# Integration test with Docker/Podman
-cd test
-./test.sh
-
-# The test will:
-# 1. Build the ESM code and transpile to CommonJS for Lambda compatibility
-# 2. Process all files in test-data/ directory
-# 3. Generate PDFs in the same test-data/ directory
-# 4. Show conversion summary
+pnpm build
+pnpm test:lambda -- --cleanup
 ```
 
-The test setup includes:
-
-- Automatic ESM to CommonJS transpilation using esbuild
-- Batch conversion of multiple file types (DOCX, HTML, etc.)
-- Volume mounting for easy PDF retrieval
-- Sample test files in `test/test-data/`
+`--cleanup` deletes the generated fixture output once you are done inspecting it. Additional flags like `--bundle`, `--fixtures`, and `--port` are available for custom runs; see `scripts/run-lambda-integration.mjs` for the full list.
 
 ## Publish
 

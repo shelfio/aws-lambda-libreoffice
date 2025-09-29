@@ -26,10 +26,7 @@ yarn.lock
 .idea/.gitignore
 !.husky/_/husky.sh
 
-test/cid
-test/lib
-test/node_modules
-test/dist/
-test/test-bundled.js
+dist/
+tests/integration/lambda/__fixtures__/documents/**/*.pdf
 
 .DS_Store

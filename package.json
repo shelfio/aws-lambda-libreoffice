@@ -29,7 +29,12 @@
     "lint": "eslint . --fix",
     "lint:ci": "eslint .",
     "prepack": "pnpm build",
-    "test": "jest src",
+    "test": "pnpm run test:unit",
+    "test:unit": "jest --runInBand --testPathPatterns tests/unit",
+    "test:integration": "jest --runInBand --testPathPatterns tests/integration",
+    "test:e2e": "pnpm run test:integration",
+    "build:lambda": "node scripts/build-lambda.mjs",
+    "test:lambda": "node scripts/run-lambda-integration.mjs",
     "type-check": "tsc --noEmit",
     "type-check:watch": "pnpm run type-check -- --watch"
   },

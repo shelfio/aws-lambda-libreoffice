@@ -3,6 +3,9 @@
  */
 const config = {
   extensionsToTreatAsEsm: ['.ts'],
+  roots: ['<rootDir>/tests'],
+  testMatch: ['**/*.test.ts'],
+  setupFilesAfterEnv: ['<rootDir>/tests/setup.ts'],
   transform: {
     '^.+\\.(t|j)sx?$': '@swc/jest',
   },
