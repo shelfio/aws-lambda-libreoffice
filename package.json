@@ -60,7 +60,7 @@
     "@swc/jest": "0.2.39",
     "@types/jest": "30.0.0",
     "@types/node": "^24.2.1",
-    "esbuild": "0.25.9",
+    "esbuild": "0.25.11",
     "eslint": "9.33.0",
     "husky": "9.1.7",
     "jest": "30.0.5",
