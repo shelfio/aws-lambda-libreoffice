@@ -38,14 +38,6 @@
     "type-check": "tsc --noEmit",
     "type-check:watch": "pnpm run type-check -- --watch"
   },
-  "lint-staged": {
-    "*.{html,json,md,yml}": [
-      "prettier --write"
-    ],
-    "*.{js,ts}": [
-      "eslint --fix"
-    ]
-  },
   "prettier": "@shelf/prettier-config",
   "dependencies": {
     "@shelf/is-audio-filepath": "3.0.1",
