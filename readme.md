@@ -12,7 +12,7 @@ $ pnpm add @shelf/aws-lambda-libreoffice
 
 - **ESM Module Support**: Native ESM package with full TypeScript support
 - Includes CJK and X11 fonts bundled in the [base Docker image](https://github.com/shelfio/libreoffice-lambda-base-image)!
-- Relies on the latest LibreOffice 7.6 version which is not stripped down from features
+- Relies on the LibreOffice binary bundled in the base image via the stable `libreoffice` command
 - Requires Node.js 22 or higher (x86_64)
 
 ## Requirements
@@ -25,7 +25,7 @@ See the example at [libreoffice-lambda-base-image](https://github.com/shelfio/li
 Example:
 
 ```Dockerfile
-FROM public.ecr.aws/shelf/lambda-libreoffice-base:7.6-node20-x86_64
+FROM public.ecr.aws/shelf/lambda-libreoffice-base:26.2-node22-x86_64
 
 COPY ./ ${LAMBDA_TASK_ROOT}/
 
