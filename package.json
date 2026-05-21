@@ -73,5 +73,13 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "pnpm": {
+    "overrides": {
+      "lodash": "4.18.1",
+      "lodash-amd": "4.18.1",
+      "lodash-es": "4.18.1",
+      "lodash.unset": "4.18.0"
+    }
   }
 }
