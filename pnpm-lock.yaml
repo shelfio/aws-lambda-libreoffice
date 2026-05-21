@@ -43,7 +43,7 @@ importers:
         specifier: 30.0.0
         version: 30.0.0
       '@types/node':
-        specifier: ^24.2.1
+        specifier: ^24.12.4
         version: 24.12.4
       esbuild:
         specifier: 0.25.9
