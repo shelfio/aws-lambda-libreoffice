@@ -1,7 +1,6 @@
-export const supportedFilenames = ['document.docx', 'document.pdf'];
+export const supportedFilenames = ['document.docx', 'document.pdf', 'table.xlsx'];
 
 export const unsupportedFilenames = [
-  'table.xlsx',
   'book.epub',
   'project.mpp',
   'email.msg',
