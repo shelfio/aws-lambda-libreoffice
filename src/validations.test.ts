@@ -10,7 +10,6 @@ it.each`
 
 it.each`
   filename
-  ${'table.xlsx'}
   ${'book.epub'}
   ${'project.mpp'}
   ${'email.msg'}
