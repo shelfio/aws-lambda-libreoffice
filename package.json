@@ -26,8 +26,8 @@
   "scripts": {
     "build": "rm -rf lib/ && tsc",
     "coverage": "jest --coverage",
-    "lint": "eslint . --fix",
-    "lint:ci": "eslint .",
+    "lint": "oxfmt && eslint . --fix",
+    "lint:ci": "oxfmt --check && eslint .",
     "prepack": "pnpm build",
     "test": "pnpm run test:unit",
     "test:unit": "jest --runInBand --testPathPatterns tests/unit",
@@ -40,13 +40,13 @@
   },
   "lint-staged": {
     "*.{html,json,md,yml}": [
-      "prettier --write"
+      "oxfmt --no-error-on-unmatched-pattern"
     ],
     "*.{js,ts}": [
+      "oxfmt --no-error-on-unmatched-pattern",
       "eslint --fix"
     ]
   },
-  "prettier": "@shelf/prettier-config",
   "dependencies": {
     "@shelf/is-audio-filepath": "3.0.1",
     "del": "8.0.0",
@@ -54,18 +54,18 @@
     "is-video": "2.0.0"
   },
   "devDependencies": {
-    "@shelf/eslint-config": "5.2.3",
-    "@shelf/prettier-config": "1.0.0",
+    "@shelf/eslint-config": "6.3.0",
+    "@shelf/prettier-config": "1.1.1",
     "@shelf/tsconfig": "0.1.0",
     "@swc/jest": "0.2.39",
     "@types/jest": "30.0.0",
     "@types/node": "^24.2.1",
     "esbuild": "0.25.9",
-    "eslint": "9.33.0",
+    "eslint": "10.4.1",
     "husky": "9.1.7",
     "jest": "30.0.5",
     "lint-staged": "16.1.5",
-    "prettier": "3.6.2",
+    "oxfmt": "0.53.0",
     "typescript": "5.9.2"
   },
   "engines": {
