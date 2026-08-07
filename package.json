@@ -61,10 +61,10 @@
     "@types/jest": "30.0.0",
     "@types/node": "^24.13.3",
     "esbuild": "0.25.12",
-    "eslint": "9.39.4",
+    "eslint": "10.8.0",
     "husky": "9.1.7",
     "jest": "30.4.2",
-    "lint-staged": "16.4.0",
+    "lint-staged": "17.2.0",
     "prettier": "3.9.5",
     "typescript": "5.9.3"
   },
