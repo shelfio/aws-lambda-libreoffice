@@ -54,14 +54,14 @@
     "is-video": "2.0.0"
   },
   "devDependencies": {
-    "@shelf/eslint-config": "5.2.3",
+    "@shelf/eslint-config": "7.1.0",
     "@shelf/prettier-config": "1.0.0",
     "@shelf/tsconfig": "0.1.0",
     "@swc/jest": "0.2.39",
     "@types/jest": "30.0.0",
     "@types/node": "^24.13.3",
     "esbuild": "0.25.12",
-    "eslint": "9.39.4",
+    "eslint": "10.8.0",
     "husky": "9.1.7",
     "jest": "30.4.2",
     "lint-staged": "16.4.0",
@@ -73,17 +73,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "pnpm": {
-    "overrides": {
-      "lodash": "4.18.1",
-      "lodash-amd": "4.18.1",
-      "lodash-es": "4.18.1",
-      "lodash.unset": "4.18.0",
-      "brace-expansion@<2.0.0": "1.1.16",
-      "brace-expansion@>=2.0.0 <3.0.0": "2.1.2",
-      "brace-expansion@>=3.0.0 <6.0.0": "5.0.7",
-      "minimatch@>=9.0.0 <9.0.7": "9.0.7"
-    }
   }
 }
