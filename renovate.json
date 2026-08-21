@@ -1,5 +1,0 @@
-{
-  "extends": ["github>shelfio/renovate-config-public"],
-  "labels": ["backend"],
-  "ignoreDeps": ["cimg/node"]
-}
