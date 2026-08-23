@@ -9,3 +9,7 @@ overrides:
   'minimatch@>=9.0.0 <9.0.7': 9.0.7
   'eslint-plugin-barrel-files>oxc-resolver': 11.19.1
 nodeLinker: 'hoisted'
+allowBuilds:
+  '@swc/core': false
+  esbuild: false
+  unrs-resolver: false
