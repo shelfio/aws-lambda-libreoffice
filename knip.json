@@ -1,0 +1,5 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "entry": ["tests/integration/lambda/handler.ts"],
+  "ignoreBinaries": ["podman"]
+}
