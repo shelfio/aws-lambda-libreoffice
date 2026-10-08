@@ -30,6 +30,7 @@
     "lint": "oxfmt && eslint . --fix",
     "lint:ci": "oxfmt --check && eslint .",
     "prepack": "pnpm build",
+    "prepare": "husky",
     "test": "pnpm run test:unit",
     "test:unit": "jest --runInBand --testPathPatterns tests/unit",
     "test:integration": "jest --runInBand --testPathPatterns tests/integration",
