@@ -106,5 +106,3 @@ export const handler = async (): Promise<HandlerResponse> => {
     throw error;
   }
 };
-
-export default handler;

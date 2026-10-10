@@ -71,7 +71,7 @@ const extractResultsFromLogs = logs => {
   }
 };
 
-export const prepareIntegrationImage = async ({
+const prepareIntegrationImage = async ({
   bundlePath = lambdaBundlePath,
   imageTag = 'lo-lambda-test',
   dockerfile = lambdaDockerfile,
