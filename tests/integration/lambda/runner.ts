@@ -1,8 +1,7 @@
 import path from 'node:path';
-import {isPodmanAvailable} from '../../../scripts/utils/podman.js';
 import {removeTempDir, runLambdaContainer} from '../../../scripts/utils/lambda.js';
 
-export type ConversionStatus = 'success' | 'no-output-dir' | 'error';
+type ConversionStatus = 'success' | 'no-output-dir' | 'error';
 
 export type ConversionResult = {
   input: string;
@@ -31,12 +30,10 @@ export type LambdaRunOptions = {
   invocationPayload?: unknown;
 };
 
-export const FIXTURES_DIRECTORY = path.join(
+const FIXTURES_DIRECTORY = path.join(
   process.cwd(),
   'tests/integration/lambda/__fixtures__/documents'
 );
-
-export const canRunIntegration = isPodmanAvailable;
 
 export const runIntegration = async (options: LambdaRunOptions = {}): Promise<LambdaRunResult> => {
   const result = await runLambdaContainer({

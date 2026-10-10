@@ -4,11 +4,7 @@ import {projectRoot} from './paths.js';
 
 const podmanBaseArgs = [];
 
-export const runCommand = (
-  command,
-  args,
-  {cwd = projectRoot, env = process.env, capture = false} = {}
-) =>
+const runCommand = (command, args, {cwd = projectRoot, env = process.env, capture = false} = {}) =>
   new Promise((resolve, reject) => {
     const child = spawn(command, args, {
       cwd,
